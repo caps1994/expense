@@ -2,8 +2,12 @@
 
 <?php
 Assets::js([
-	'https://code.jquery.com/jquery-1.12.1.min.js',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js',
+	Url::templatePath().'js/jquery.js',
+    Url::templatePath().'js/bootstrap.min.js',
+    Url::templatePath().'js/jquery.easing.min.js',
+    Url::templatePath().'js/jquery.fittext.js',
+    Url::templatePath().'js/wow.min.js',
+    Url::templatePath().'js/creative.js',
 ]);
 echo $js; //place to pass data / plugable hook zone
 echo $footer; //place to pass data / plugable hook zone
@@ -11,3 +15,5 @@ echo $footer; //place to pass data / plugable hook zone
 
 </body>
 </html>
+
+

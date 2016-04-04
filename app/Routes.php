@@ -16,8 +16,8 @@ $router = Router::getInstance();
 /** Define static routes. */
 
 // Default Routing
-Router::any('', 'App\Controllers\Welcome@index');
-Router::any('subpage', 'App\Controllers\Welcome@subPage');
+Router::get('', 'App\Controllers\Pages@index');
+Router::get('subpage', 'App\Controllers\Welcome@subPage');
 Router::any('admin/(:any)(/(:any)(/(:any)(/(:any))))', 'App\Controllers\Demo@test');
 /** End default routes */
 
