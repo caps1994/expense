@@ -10,17 +10,8 @@ class Auth extends Controller
     {
         parent::__construct();
     }
-    
-    public function index()
-    {
-        $data['title'] = 'index';
 
-        View::renderTemplate('header', $data);
-        View::render('Auth/Index', $data);
-        View::renderTemplate('footer', $data);
-    }
-
-        public function login()
+    public function login()
     {
         $data['title'] = 'login';
         //TODO login form inside Templates/login
