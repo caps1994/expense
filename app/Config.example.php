@@ -30,7 +30,7 @@ class Config
         /**
          * Define the complete site URL.
          */
-        define('SITEURL', 'http://novaframework.dev/');
+        define('SITEURL', 'http://localhost/');
 
         /**
          * Define relative base path.
@@ -86,22 +86,22 @@ class Config
         /**
          * Database password.
          */
-        define('DB_PASS', 'password');
+        define('DB_PASS', 'root');
 
         /**
-         * PREFER to be used in database calls default is smvc_
+         * PREFER to be used in database calls default is nova_
          */
-        define('PREFIX', 'nova_');
+        define('PREFIX', 'expense_');
 
         /**
          * Set prefix for sessions.
          */
-        define('SESSION_PREFIX', 'nova_');
+        define('SESSION_PREFIX', 'expense_');
 
         /**
          * Optional create a constant for the name of the site.
          */
-        define('SITETITLE', 'Nova V3.0');
+        define('SITETITLE', 'Expense');
 
         /**
          * Optional set a site email address.

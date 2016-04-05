@@ -91,17 +91,17 @@ class Config
         /**
          * PREFER to be used in database calls default is nova_
          */
-        define('PREFIX', 'nova_');
+        define('PREFIX', 'expense_');
 
         /**
          * Set prefix for sessions.
          */
-        define('SESSION_PREFIX', 'nova_');
+        define('SESSION_PREFIX', 'expense_');
 
         /**
          * Optional create a constant for the name of the site.
          */
-        define('SITETITLE', 'Nova V3.0');
+        define('SITETITLE', 'Expense');
 
         /**
          * Optional set a site email address.

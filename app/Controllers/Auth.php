@@ -22,11 +22,13 @@ class Auth extends Controller
             $password = $_POST['form_password'];
             
             print_r($username);
+            //TODO CORRECT VALIDATION
             if($username == '')
             {
                 $error[] = 'Username is Required';
             }
             
+            //if validation is sucessful redirect to protected area.
             if(!$error)
             {
                 
