@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use Core\View;
 use Core\Controller;
+use Helpers\Session;
+use Helpers\Url;
 
 class Console extends Controller
 {
@@ -13,6 +15,9 @@ class Console extends Controller
     
     public function index()
     {
+        if(!Session::get('loggedin')){
+            Url::redirect();
+        }
         $data['title'] = 'index';
         //TODO lock down index and do console templates in Templates/Console
         View::renderTemplate('header', $data);

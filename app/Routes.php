@@ -19,12 +19,12 @@ $router = Router::getInstance();
 Router::get('', 'App\Controllers\Pages@index');
 Router::get('subpage', 'App\Controllers\Welcome@subPage');
 Router::any('admin/(:any)(/(:any)(/(:any)(/(:any))))', 'App\Controllers\Demo@test');
-Router::group('console', function() {
-    Router::any('console', 'App\Controllers\Console@index');
-});
 
+
+Router::any('console', 'App\Controllers\Console@index');
 Router::any('login', 'App\Controllers\Auth@login');
 Router::any('logout', 'App\Controllers\Auth@logout');
+Router::any('register', 'App\Controllers\Register@index');
 /** End default routes */
 
 /** Module routes. */

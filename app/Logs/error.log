@@ -4,3 +4,32 @@
 
 2016-04-05 22:33PM - require(/Applications/MAMP/htdocs/expense/app/Views/Console/Login.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/expense/system/Core/View.php on line 41
 
+Exception information:
+
+           Date: Apr 06, 2016 15:48PM
+
+           Message: SQLSTATE[42000] [1049] Unknown database 'dbname'
+
+           Code: 1049
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 59
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(59): PDO->__construct('mysql:host=loca...', 'root', '********')
+#1 /var/www/expense/system/Core/Model.php(31): Helpers\Database::get()
+#2 /var/www/expense/app/Models/User.php(10): Core\Model->__construct()
+#3 /var/www/expense/app/Controllers/Auth.php(18): App\Models\User->__construct()
+#4 /var/www/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\Controllers...', 'login', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(41): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+2016-04-06 16:37PM - password_hash() expects parameter 2 to be long, string given in /var/www/expense/app/Controllers/Auth.php on line 34
+

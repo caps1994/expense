@@ -7,27 +7,46 @@ use Helpers\Session;
 use Helpers\Password;
 use Helpers\Url;
 use Helpers\Request;
+use Helpers\Csrf;
+use App\Models\User;
+
 class Auth extends Controller
 {
+    private $_model;
+    
     public function __construct()
     {
         parent::__construct();
+        $this->_model = new User();
+        
     }
 
     public function login()
     {
-        if(isset($_POST['login_submit']))
+        //echo password_hash("test", PASSWORD_DEFAULT)."\n";
+        if(Request::isPost())
         {
-            $username = $_POST['form_username'];
-            $password = $_POST['form_password'];
-            
-            print_r($username);
-            //TODO CORRECT VALIDATION
-            if($username == '')
+            $username = Request::post('form-username');
+            $password = Request::post('form-password');
+
+            if (Csrf::isTokenValid('csrfTokenLogin'))
             {
-                $error[] = 'Username is Required';
+                //TODO CORRECT VALIDATION
+                if(Password::verify($password, $this->_model->getHash($username)))
+                {
+                    Session::set('loggedin', true);
+                    Session::set('authKey', $this->_model->getHash($username));
+                    Url::redirect('console');
+                }
+                else
+                {
+                    $error[] = 'Password is incorrect';
+                }
             }
-            
+            else
+            {
+                Url::redirect('login');
+            }
             //if validation is sucessful redirect to protected area.
             if(!$error)
             {
@@ -38,7 +57,7 @@ class Auth extends Controller
         //TODO login form inside Templates/login
         View::renderTemplate('header', $data, 'Login');
         View::render('Login/index', $data, $error);
-        View::renderTemplate('footer', $data, 'login');
+        View::renderTemplate('footer', $data, 'Login');
     }
 
     public function logout()
