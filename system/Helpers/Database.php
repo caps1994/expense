@@ -121,7 +121,6 @@ class Database extends PDO
         $fieldValues = ':'.implode(', :', array_keys($data));
 
         $stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
-
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }

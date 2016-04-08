@@ -20,9 +20,9 @@ class Console extends Controller
         }
         $data['title'] = 'index';
         //TODO lock down index and do console templates in Templates/Console
-        View::renderTemplate('header', $data);
+        View::renderTemplate('header', $data, 'Login');
         View::render('Console/Index', $data);
-        View::renderTemplate('footer', $data);
+        View::renderTemplate('footer', $data, 'Login');
     }
 
 }

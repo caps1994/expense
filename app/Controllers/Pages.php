@@ -19,4 +19,14 @@ class Pages extends Controller
         View::render('Pages/Index', $data);
         View::renderTemplate('footer', $data);
     }
+    
+    public function thankyouPage()
+    {
+        $data['title'] = 'Thank you for registering!';
+
+         View::renderTemplate('header', $data, 'Login');
+        View::render('Pages/thank-you', $data);
+        View::renderTemplate('footer', $data, 'Login');
+    }
+    
 }

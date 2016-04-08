@@ -21,6 +21,7 @@ use Core\Error;
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
+								<?=Error::display($error);?>
                         		<div class="form-top-left">
                         			<h3>Register to our site</h3>
                             		<p>Enter your details to register:</p>
@@ -56,7 +57,18 @@ use Core\Error;
 												'class' => 'form-surname form-control',
 												'id' => 'form-surname',
 											]);?>
-										</div>                                        
+										</div>
+										
+										<div class="form-group">
+											<label class="sr-only" for="form-company">Company</label>
+											<?=Form::input([
+												'type' => 'text',
+												'name' => 'form-company',
+												'placeholder' => 'Company...',
+												'class' => 'form-company form-control',
+												'id' => 'form-company',
+											]);?>
+										</div>     
 
 										<div class="form-group">
 											<label class="sr-only" for="form-email">Email</label>
@@ -79,13 +91,13 @@ use Core\Error;
 											]);?>
 										</div>
                                         <div class="form-group">
-											<label class="sr-only" for="form-password">Confirm Password</label>
+											<label class="sr-only" for="form-password-confirm">Confirm Password</label>
 											<?=Form::input([
 												'type' => 'password',
-												'name' => 'form-password',
+												'name' => 'form-password-confirm',
 												'placeholder' => 'Confirm Password...',
-												'class' => 'form-password form-control',
-												'id' => 'form-password',
+												'class' => 'form-password-confirm form-control',
+												'id' => 'form-password-confirm',
 											]);?>
 										</div>
 										<?=Form::button([

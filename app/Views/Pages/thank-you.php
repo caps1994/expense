@@ -1,0 +1,1 @@
+<h1 style="color:white">Thank you for registering you should receve a email to confirm your registration</h1>

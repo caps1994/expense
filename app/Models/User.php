@@ -5,9 +5,11 @@ use Core\Model;
 
 class User extends Model
 {
+    
     public function __construct()
     {
         parent::__construct();
+        
     }
     
     public function getHash($email)
@@ -22,9 +24,10 @@ class User extends Model
         return $data[0]->password;
     }
     
-    public function add()
+    public function register($data)
     {
-       
+        $this->db->insert(PREFIX.'root_account', $data);
+        return $this->db->lastInsertId('account_id');
     }
 
     public function edit()

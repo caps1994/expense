@@ -18,7 +18,7 @@ class Mail extends PhpMailer
      *
      * @var string $From set sender email
      */
-    public $From     = 'noreply@domain.com';
+    public $From     = 'postmaster@sandboxb3198e55080b441f967c39ceff6a7fa7.mailgun.org';
 
     /**
      * FromName
@@ -32,42 +32,42 @@ class Mail extends PhpMailer
      *
      * @var string $Host set sender SMTP Route
      */
-    //public $Host     = 'smtp.gmail.com';
+    public $Host     = 'smtp.mailgun.org';
 
     /**
      * Mailer
      *
      * @var string $Mailer set type default is SMTP
      */
-    //public $Mailer   = 'smtp';
+    public $Mailer   = 'smtp';
 
     /**
      * SMTPAuth
      *
      * @var string $SMTPAuth use authenticated
      */
-    //public $SMTPAuth = true;
+    public $SMTPAuth = true;
 
     /**
      * Username
      *
      * @var string $Username set username
      */
-    //public $Username = 'email';
+    public $Username = 'postmaster@sandboxb3198e55080b441f967c39ceff6a7fa7.mailgun.org';
 
     /**
      * Password
      *
      * @var string $Password set password
      */
-    //public $Password = 'password';
+    public $Password = 'TitNpw4W';
 
     /**
      * SMTPSecure
      *
      * @var string $SMTPSecure set Secure SMTP
      */
-    //public $SMTPSecure = 'tls';
+    public $SMTPSecure = 'tls';
 
     /**
      * WordWrap

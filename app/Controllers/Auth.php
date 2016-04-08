@@ -28,7 +28,7 @@ class Auth extends Controller
         {
             $username = Request::post('form-username');
             $password = Request::post('form-password');
-
+            
             if (Csrf::isTokenValid('csrfTokenLogin'))
             {
                 //TODO CORRECT VALIDATION
@@ -62,10 +62,8 @@ class Auth extends Controller
 
     public function logout()
     {
-        $data['title'] = 'logout';
-
-        View::renderTemplate('header', $data);
-        View::render('Console/Logout', $data);
-        View::renderTemplate('footer', $data);
+        Session::destroy('loggedin');
+        Session::destroy('authKey');
+        Url::redirect();
     }
 }
