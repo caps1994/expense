@@ -24,7 +24,7 @@ class Auth extends Controller
     public function login()
     {
         if(Session::get('loggedin')){
-            Url::redirect('console');
+            Url::redirect('console/');
         }
         //echo password_hash("test", PASSWORD_DEFAULT)."\n";
         if(Request::isPost())

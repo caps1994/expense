@@ -19,7 +19,16 @@ $router = Router::getInstance();
 Router::get('', 'App\Controllers\Pages@index');
 Router::get('subpage', 'App\Controllers\Welcome@subPage');
 Router::any('admin/(:any)(/(:any)(/(:any)(/(:any))))', 'App\Controllers\Demo@test');
-Router::any('console', 'App\Controllers\Console@index');
+
+Router::group('console', function(){
+    Router::any('', 'App\Controllers\Console\ConsoleDashboard@index');
+    Router::any('dashboard', 'App\Controllers\Console\ConsoleDashboard@index');
+    
+    Router::group('users', function(){
+        Router::any('', 'App\Controllers\Console\ConsoleUsers@index');
+        Router::any('add', 'App\Controllers\Console\ConsoleUsers@add');
+    });
+});
 Router::any('login', 'App\Controllers\Auth@login');
 Router::any('logout', 'App\Controllers\Auth@logout');
 Router::any('register', 'App\Controllers\Register@index');

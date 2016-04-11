@@ -57,7 +57,10 @@ class Register extends Controller
                     {
                         $details['password'] = Password::make($details['password']);
                         $this->_model->register($details);
-                        $this->_email->send();
+                        $this->_email->send(array('address' => $details['email'],
+                                                  'subject' => 'Thanks for registering',
+                                                  'message' => 'Thank you for registering,'
+                                                  ));
                         Url::redirect('thank-you');
                     }
                 }

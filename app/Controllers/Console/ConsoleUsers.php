@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Console;
 
 use Core\View;
 use Core\Controller;
@@ -7,7 +7,7 @@ use Helpers\Session;
 use Helpers\Url;
 use App\Models\User;
 
-class Console extends Controller
+class ConsoleUsers extends Controller
 {
     private $_user;
     
@@ -23,12 +23,12 @@ class Console extends Controller
             Url::redirect('login');
         }
         
-        $data['title'] = 'Console';
-        $data['firstname'] = $this->_user->getUseDetailsFromID(Session::get('userID'))->firstname;
-        $data['lastname'] = $this->_user->getUseDetailsFromID(Session::get('userID'))->surname;
-        //TODO lock down index and do console templates in Templates/Console
+        $data['title'] = 'Console - Users';
+        $userDetails = $this->_user->getUseDetailsFromID(Session::get('userID'));
+        $data['firstname'] = $userDetails->firstname;
+        $data['lastname'] = $userDetails->surname;
         View::renderTemplate('header', $data, 'Console');
-        View::render('Console/Index', $data);
+        View::render('Console/User', $data);
         View::renderTemplate('footer', $data, 'Console');
     }
 
