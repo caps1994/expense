@@ -1,0 +1,54 @@
+Exception information:
+
+           Date: Apr 10, 2016 17:07PM
+
+           Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company' in 'field list'
+
+           Code: 42S22
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/User.php(29): Helpers\Database->insert('expense_********_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Register.php(59): App\Models\User->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(38): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: Apr 10, 2016 17:12PM
+
+           Message: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`expense`.`expense_root_account`, CONSTRAINT `fk_root_account_1` FOREIGN KEY (`account_id`) REFERENCES `expense_client_logins` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+
+           Code: 23000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/User.php(29): Helpers\Database->insert('expense_********_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Register.php(59): App\Models\User->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(38): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+

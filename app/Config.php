@@ -30,7 +30,7 @@ class Config
         /**
          * Define the complete site URL.
          */
-        define('SITEURL', 'http://www.simple.local/');
+        define('SITEURL', 'http://localhost/');
 
         /**
          * Define relative base path.
@@ -86,7 +86,7 @@ class Config
         /**
          * Database password.
          */
-        define('DB_PASS', 'TitNpw4W2');
+        define('DB_PASS', 'root');
 
         /**
          * PREFER to be used in database calls default is nova_

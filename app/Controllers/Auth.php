@@ -23,6 +23,9 @@ class Auth extends Controller
 
     public function login()
     {
+        if(Session::get('loggedin')){
+            Url::redirect('console');
+        }
         //echo password_hash("test", PASSWORD_DEFAULT)."\n";
         if(Request::isPost())
         {
@@ -35,6 +38,8 @@ class Auth extends Controller
                 if(Password::verify($password, $this->_model->getHash($username)))
                 {
                     Session::set('loggedin', true);
+                    Session::set('userID', $this->_model->getUserDetailsFromEmail($username)->account_id);
+                    //TODO Create authkey
                     Session::set('authKey', $this->_model->getHash($username));
                     Url::redirect('console');
                 }
@@ -64,6 +69,7 @@ class Auth extends Controller
     {
         Session::destroy('loggedin');
         Session::destroy('authKey');
+        Session::destroy('userID');
         Url::redirect();
     }
 }
