@@ -8,7 +8,7 @@ use Helpers\Password;
 use Helpers\Url;
 use Helpers\Request;
 use Helpers\Csrf;
-use App\Models\User;
+use App\Models\RootUser;
 
 class Auth extends Controller
 {
@@ -17,7 +17,7 @@ class Auth extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_model = new User();
+        $this->_model = new RootUser();
         
     }
 
@@ -41,7 +41,7 @@ class Auth extends Controller
                     Session::set('userID', $this->_model->getUserDetailsFromEmail($username)->account_id);
                     //TODO Create authkey
                     Session::set('authKey', $this->_model->getHash($username));
-                    Url::redirect('console');
+                    Url::redirect('console/dashboard');
                 }
                 else
                 {

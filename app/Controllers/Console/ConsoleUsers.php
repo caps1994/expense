@@ -5,7 +5,7 @@ use Core\View;
 use Core\Controller;
 use Helpers\Session;
 use Helpers\Url;
-use App\Models\User;
+use App\Models\RootUser;
 
 class ConsoleUsers extends Controller
 {
@@ -14,7 +14,7 @@ class ConsoleUsers extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_user = new User();
+        $this->_user = new RootUser();
     }
     
     public function index()
@@ -29,6 +29,21 @@ class ConsoleUsers extends Controller
         $data['lastname'] = $userDetails->surname;
         View::renderTemplate('header', $data, 'Console');
         View::render('Console/User', $data);
+        View::renderTemplate('footer', $data, 'Console');
+    }
+    
+    public function add()
+    {
+        if(!Session::get('loggedin')){
+            Url::redirect('login');
+        }
+        
+        $data['title'] = 'Console - Add Client User';
+        $userDetails = $this->_user->getUseDetailsFromID(Session::get('userID'));
+        $data['firstname'] = $userDetails->firstname;
+        $data['lastname'] = $userDetails->surname;
+        View::renderTemplate('header', $data, 'Console');
+        View::render('Console/AddUser', $data);
         View::renderTemplate('footer', $data, 'Console');
     }
 

@@ -76,7 +76,7 @@ class Config
         /**
          * Database name.
          */
-        define('DB_NAME', 'dbname');
+        define('DB_NAME', 'expense');
 
         /**
          * Database username.

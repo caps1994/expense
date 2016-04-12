@@ -8,7 +8,7 @@ use Helpers\Password;
 use Helpers\Url;
 use Helpers\Request;
 use Helpers\Csrf;
-use App\Models\User;
+use App\Models\RootUser;
 use App\Controllers\Email;
 
 class Register extends Controller
@@ -18,7 +18,7 @@ class Register extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_model = new User();
+        $this->_model = new RootUser();
         $this->_email = new Email();
     }
     
