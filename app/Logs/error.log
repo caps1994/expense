@@ -1,0 +1,2 @@
+2016-04-26 17:21PM - Missing argument 1 for Helpers\Csrf::isTokenValid(), called in /var/www/expense/app/Controllers/Console/ConsoleUsers.php on line 57 and defined in /var/www/expense/system/Helpers/Csrf.php on line 63
+

@@ -26,7 +26,7 @@ Router::group('console', function(){
     
     Router::group('users', function(){
         Router::any('', 'App\Controllers\Console\ConsoleUsers@index');
-        Router::any('add', 'App\Controllers\Console\ConsoleUsers@add');
+        Router::any('add', 'App\Controllers\Console\ConsoleUsers@addClientUser');
     });
 });
 Router::any('login', 'App\Controllers\Auth@login');

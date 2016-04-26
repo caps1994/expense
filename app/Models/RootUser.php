@@ -38,6 +38,7 @@ class RootUser extends Model
     
     public function register($data)
     {
+        $data['date_created'] = date("Y-m-d H:i:s");
         $this->db->insert(PREFIX.'root_account', $data);
         return $this->db->lastInsertId('account_id');
     }

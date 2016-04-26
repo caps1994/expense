@@ -65,6 +65,10 @@ class Register extends Controller
                     }
                 }
             }
+            else
+            {
+                Url::redirect('register');
+            }
         }
             
         View::renderTemplate('header', $data, 'Login');
