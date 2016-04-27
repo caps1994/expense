@@ -13,7 +13,7 @@ class ClientUsers extends Model
     public function getClientUsers($root_account)
     {
         $data = $this->db->select("SELECT * FROM ".PREFIX."client_users WHERE root_account_id = :root_account", array(':root_account' => $root_account));
-        return $data[0];
+        return $data;
     }
 
     public function addClientUser($data)

@@ -25,7 +25,7 @@ Router::group('console', function(){
     Router::any('dashboard', 'App\Controllers\Console\ConsoleDashboard@index');
     
     Router::group('users', function(){
-        Router::any('', 'App\Controllers\Console\ConsoleUsers@index');
+        Router::any('', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
         Router::any('add', 'App\Controllers\Console\ConsoleUsers@addClientUser');
     });
 });

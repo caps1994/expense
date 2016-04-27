@@ -10,6 +10,7 @@ use Helpers\Request;
 use App\Models\RootUser;
 use App\Models\ClientUsers;
 use App\Controllers\Email;
+
 class ConsoleUsers extends Controller
 {
     private $_root_user;
@@ -23,7 +24,7 @@ class ConsoleUsers extends Controller
         $this->_email = new Email();
     }
     
-    public function index()
+    public function showClientUsers()
     {
         if(!Session::get('loggedin')){
             Url::redirect('login');
@@ -33,8 +34,9 @@ class ConsoleUsers extends Controller
         $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
         $data['firstname'] = $userDetails->firstname;
         $data['lastname'] = $userDetails->surname;
+        $data['clientUsers'] = $this->_client_users->getClientUsers(Session::get('userID'));
         View::renderTemplate('header', $data, 'Console');
-        View::render('Console/User', $data);
+        View::render('Console/ShowClientUsers', $data);
         View::renderTemplate('footer', $data, 'Console');
     }
     
@@ -56,7 +58,6 @@ class ConsoleUsers extends Controller
             
             if (Csrf::isTokenValid('csrfToken'))
             {
-                var_dump($details);
                 if(isset($details['firstname'])
                    && isset($details['surname'])
                    && isset($details['email']))
@@ -72,7 +73,7 @@ class ConsoleUsers extends Controller
                                                   'subject' => 'Thanks for registering',
                                                   'message' => 'Thank you for registering,'
                                                   ));
-                        Url::redirect('thank-you');
+                        Url::redirect('console/users/');
                     }
                 }
             }

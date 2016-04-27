@@ -3,7 +3,8 @@ vendor/
 composer.lock
 app/Config.php
 
+
 # The developers Playground
-works
+.DS_Store
 
 
