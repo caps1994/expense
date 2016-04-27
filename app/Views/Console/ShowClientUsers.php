@@ -13,6 +13,7 @@
 							</div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
+					<?php if ($clientUsers != NULL):?>
                     <table class="table table-striped responsive-utilities jambo_table bulk_action">
                             <thead>
                                 <tr class="headings">
@@ -45,6 +46,11 @@
 								<?php endforeach;?>
                             </tbody>
                         </table>
+					<?php else:?>
+					
+						<h3>There are no users added yet, add some!</h3>
+						<a href="/console/users/add"><button class="btn btn-primary">Add users</button></a>
+					<?php endif;?>
 							</div>
 
 							<div class="clearfix"></div>

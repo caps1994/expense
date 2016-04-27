@@ -49,8 +49,8 @@ class ConsoleUsers extends Controller
         if(Request::isPost())
         {
             $details = array('root_account_id' => Session::get('userID'),
-                             'firstname' => ucfirst(Request::post('form-firstname')),
-                             'surname' => ucfirst(Request::post('form-surname')),
+                             'firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
+                             'surname' => ucfirst(strtolower(Request::post('form-surname'))),
                              'email' => Request::post('form-email'),
                              'band'  => Request::post('form-band'),
                              'post' => Request::post('form-post'),
