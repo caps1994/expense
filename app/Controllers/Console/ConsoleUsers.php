@@ -69,8 +69,9 @@ class ConsoleUsers extends Controller
                     else
                     {
                         $this->_client_users->addClientUser($details);
+                        
                         $this->_email->send(array('address' => $details['email'],
-                                                  'subject' => 'Thanks for registering',
+                                                  'subject' => 'You have been enrolled on Expense!',
                                                   'message' => 'Thank you for registering,'
                                                   ));
                         Url::redirect('console/users/');
@@ -78,6 +79,7 @@ class ConsoleUsers extends Controller
                 }
             }
         }
+        
         $error = array();
         $data['title'] = 'Console - Add Client User';
         $rootUserDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
