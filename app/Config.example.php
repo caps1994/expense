@@ -30,7 +30,7 @@ class Config
         /**
          * Define the complete site URL.
          */
-        define('SITEURL', 'http://localhost/');
+        define('SITEURL', ($_SERVER['AWS_SITEURL'] ? $_SERVER['AWS_SITEURL'] : 'http://www.simple.local/'));
 
         /**
          * Define relative base path.
@@ -71,22 +71,21 @@ class Config
         /**
          * Database host default is localhost.
          */
-        define('DB_HOST', 'localhost');
+        define('DB_HOST', ($_SERVER['RDS_SERVER'] ? $_SERVER['RDS_SERVER'] :'localhost'));
 
         /**
          * Database name.
          */
-        define('DB_NAME', 'expense');
-
+        define('DB_NAME', ($_SERVER['RDS_DB_NAME'] ? $_SERVER['RDS_DB_NAME'] : 'expense'));
         /**
          * Database username.
          */
-        define('DB_USER', 'root');
+        define('DB_USER', ($_SERVER['RDS_DB_USER'] ? $_SERVER['RDS_DB_USER'] :'root'));
 
         /**
          * Database password.
          */
-        define('DB_PASS', 'root');
+        define('DB_PASS', ($_SERVER['RDS_DB_PASS'] ? $_SERVER['RDS_DB_PASS'] :'TitNpw4W2'));
 
         /**
          * PREFER to be used in database calls default is nova_
@@ -102,11 +101,11 @@ class Config
          * Optional create a constant for the name of the site.
          */
         define('SITETITLE', 'Expense');
-
+        
         /**
          * Optional set a site email address.
          */
-        // define('SITEEMAIL', 'email@domain.com');
+         define('SITEEMAIL', ($_SERVER['AWS_SITEEMAIL'] ? $_SERVER['AWS_SITEEMAIL'] : 'postmaster@sandboxb3198e55080b441f967c39ceff6a7fa7.mailgun.org'));
 
         /**
          * Turn on custom error handling.
