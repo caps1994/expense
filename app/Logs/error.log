@@ -1,2 +1,29 @@
 2016-04-26 17:21PM - Missing argument 1 for Helpers\Csrf::isTokenValid(), called in /var/www/expense/app/Controllers/Console/ConsoleUsers.php on line 57 and defined in /var/www/expense/system/Helpers/Csrf.php on line 63
 
+Exception information:
+
+           Date: Apr 29, 2016 17:35PM
+
+           Message: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+           Code: 1045
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 59
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(59): PDO->__construct('mysql:host=loca...', 'root', '********')
+#1 /Applications/MAMP/htdocs/expense/system/Core/Model.php(31): Helpers\Database::get()
+#2 /Applications/MAMP/htdocs/expense/app/Models/RootUser.php(11): Core\Model->__construct()
+#3 /Applications/MAMP/htdocs/expense/app/Controllers/Auth.php(20): App\Models\RootUser->__construct()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(47): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
