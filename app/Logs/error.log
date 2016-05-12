@@ -1,28 +1,53 @@
-2016-04-26 17:21PM - Missing argument 1 for Helpers\Csrf::isTokenValid(), called in /var/www/expense/app/Controllers/Console/ConsoleUsers.php on line 57 and defined in /var/www/expense/system/Helpers/Csrf.php on line 63
-
 Exception information:
 
-           Date: Apr 29, 2016 17:35PM
+           Date: May 12, 2016 18:15PM
 
-           Message: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+           Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company' in 'field list'
 
-           Code: 1045
+           Code: 42S22
 
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+           File: /var/www/expense/system/Helpers/Database.php
 
-           Line: 59
+           Line: 128
 
            Stack trace:
 
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(59): PDO->__construct('mysql:host=loca...', 'root', '********')
-#1 /Applications/MAMP/htdocs/expense/system/Core/Model.php(31): Helpers\Database::get()
-#2 /Applications/MAMP/htdocs/expense/app/Models/RootUser.php(11): Core\Model->__construct()
-#3 /Applications/MAMP/htdocs/expense/app/Controllers/Auth.php(20): App\Models\RootUser->__construct()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(47): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
+#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(47): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 12, 2016 19:15PM
+
+           Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company' in 'field list'
+
+           Code: 42S22
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
+#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(47): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
 #9 {main}
 
            ---------
