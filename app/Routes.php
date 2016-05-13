@@ -27,6 +27,8 @@ Router::group('console', function(){
     Router::group('users', function(){
         Router::any('', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
         Router::any('add', 'App\Controllers\Console\ConsoleUsers@addClientUser');
+        Router::get('edit', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
+        Router::any('edit/(:num)', 'App\Controllers\Console\ConsoleUsers@editClientUser');
     });
 });
 Router::any('login', 'App\Controllers\Auth@login');

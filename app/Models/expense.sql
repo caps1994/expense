@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
 --
--- Host: expense-dev.cxeqoqo1lo9s.eu-west-1.rds.amazonaws.com    Database: expense
+-- Host: localhost    Database: expense
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.7.12-0ubuntu1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -59,10 +59,10 @@ CREATE TABLE `expense_client_users` (
   `date_created` date NOT NULL,
   `band` int(11) DEFAULT NULL,
   `post` int(11) DEFAULT NULL,
-  `department` int(11) DEFAULT NULL,
+  `enabled` int(11) DEFAULT '0',
   PRIMARY KEY (`user_id`),
   KEY `fk_client_users_1_idx` (`root_account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `expense_client_users` (
 
 LOCK TABLES `expense_client_users` WRITE;
 /*!40000 ALTER TABLE `expense_client_users` DISABLE KEYS */;
-INSERT INTO `expense_client_users` VALUES (7,1,'Christopher','Caplan','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-27',0,0,NULL),(8,1,'Dave','Meh','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-28',4,2,NULL),(9,1,'Bill','Meh','bil@meh.co.uk',NULL,NULL,'2016-05-03',1,1,NULL);
+INSERT INTO `expense_client_users` VALUES (7,1,'Christopher','Caplan','ccaplan@hotmail.co.uk',NULL,NULL,'2016-05-13',0,0,0),(8,1,'Dave','Meh','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-28',4,2,NULL),(9,1,'Bill','Meh','bil@meh.co.uk',NULL,NULL,'2016-05-03',1,1,NULL),(10,1,'Tom','Lloyd','tom.lloyd@meh.com',NULL,NULL,'2016-05-12',1,1,NULL);
 /*!40000 ALTER TABLE `expense_client_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-12 19:24:19
+-- Dump completed on 2016-05-13 15:49:59

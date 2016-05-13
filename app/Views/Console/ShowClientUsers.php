@@ -40,8 +40,9 @@
                                     <td class=" "><?=$user->firstname?></td>
                                     <td class=" "><?=$user->surname?></td>
                                     <td class=" "><?=$user->email?></td>
-                                    <td class=" "><?=$user->user_id?></td>
-                                    <td class=" last"><a href="#">View</a></td>
+									<?php $status = ($user->enabled == 0 ? "Enabled" : "Disabled");?>
+                                    <td class=" "><?=$status?></td>
+                                    <td class=" last"><a href="/console/users/edit/<?=$user->user_id?>">View</a></td>
                                 </tr>
 								<?php endforeach;?>
                             </tbody>
