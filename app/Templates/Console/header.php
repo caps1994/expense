@@ -97,13 +97,7 @@
 		  <div class="menu_section">
               <h3>Settings</h3>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Posts Groups <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li><a href="/console/post-groups">View Post Groups</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Users Settings <span class="fa fa-chevron-down"></span></a>
+				  <li><a><i class="fa fa-user"></i> Users Settings <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="/console/users/edit">Edit User</a>
                     </li>
@@ -111,6 +105,13 @@
                     </li>
                   </ul>
                 </li>
+                <li><a><i class="fa fa-group"></i> Posts Groups <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="/console/post-groups">View Post Groups</a>
+                    </li>
+                  </ul>
+                </li>
+                
               </ul>
 			</div>
           </div>
