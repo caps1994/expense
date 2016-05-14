@@ -17,33 +17,26 @@ use Core\Error;
                   <?=Error::display($error);?>
                   <form id="demo-form2" method="post" data-parsley-validate class="form-horizontal form-label-left">
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-firstname" >First Name <span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-firstname">Band Group Name <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" name="form-firstname" required="required" class="form-control col-md-7 col-xs-12" value="<?=$clientUser[0]->firstname?>">
+                        <input type="text" id="first-band-group" name="form-band-group" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-surname">Surname <span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-surname">Max Spend <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="form-surname" name="form-surname" required="required" class="form-control col-md-7 col-xs-12" value="<?=$clientUser[0]->surname?>">
+                        <input type="number" id="form-max-spend" name="form-max-spend" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-email">Email <span class="required">*</span>
-                      </label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-email">Description</label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="form-email" name="form-email" required="required" class="form-control col-md-7 col-xs-12" value="<?=$clientUser[0]->email?>">
+                        <input type="text" id="form-notes" name="form-notes" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Band </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="form-band" class="form-control col-md-7 col-xs-12" type="text" name="form-band" value="<?=$clientUser[0]->band?>">
-                      </div>
-                    </div>
-					<div class="form-group">
                       <label for="form-enabled" class="control-label col-md-3 col-sm-3 col-xs-12">Status </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
 							<select name="form-status"><?=$clientUser[0]->enabled?>
@@ -56,7 +49,7 @@ use Core\Error;
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <input type="hidden" name="token" value="<?php echo $data['csrfToken']; ?>" />
-                        <button type="submit" class="btn btn-primary">Cancel</button>
+                        <a href="/console/band-groups/"><button type="button" class="btn btn-primary">Cancel</button></a>
                         <button type="submit" class="btn btn-success">Submit</button>
                       </div>
                     </div>

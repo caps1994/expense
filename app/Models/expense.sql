@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
 --
 -- Host: localhost    Database: expense
 -- ------------------------------------------------------
--- Server version	5.7.12-0ubuntu1
+-- Server version	5.6.25
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,34 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `expense_band_groups`
+--
+
+DROP TABLE IF EXISTS `expense_band_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `expense_band_groups` (
+  `band_group_id` int(11) NOT NULL AUTO_INCREMENT,
+  `root_account_id` int(11) NOT NULL,
+  `band_group_name` varchar(45) NOT NULL,
+  `max_spend` varchar(45) NOT NULL,
+  `notes` varchar(255) DEFAULT NULL,
+  `enabled` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`band_group_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expense_band_groups`
+--
+
+LOCK TABLES `expense_band_groups` WRITE;
+/*!40000 ALTER TABLE `expense_band_groups` DISABLE KEYS */;
+INSERT INTO `expense_band_groups` VALUES (5,1,'Testband','1500','Test band ',1);
+/*!40000 ALTER TABLE `expense_band_groups` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `expense_client_logins`
@@ -58,11 +86,10 @@ CREATE TABLE `expense_client_users` (
   `salt` varchar(255) DEFAULT NULL,
   `date_created` date NOT NULL,
   `band` int(11) DEFAULT NULL,
-  `post` int(11) DEFAULT NULL,
   `enabled` int(11) DEFAULT '0',
   PRIMARY KEY (`user_id`),
   KEY `fk_client_users_1_idx` (`root_account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +98,7 @@ CREATE TABLE `expense_client_users` (
 
 LOCK TABLES `expense_client_users` WRITE;
 /*!40000 ALTER TABLE `expense_client_users` DISABLE KEYS */;
-INSERT INTO `expense_client_users` VALUES (7,1,'Christopher','Caplan','ccaplan@hotmail.co.uk',NULL,NULL,'2016-05-13',0,0,0),(8,1,'Dave','Meh','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-28',4,2,NULL),(9,1,'Bill','Meh','bil@meh.co.uk',NULL,NULL,'2016-05-03',1,1,NULL),(10,1,'Tom','Lloyd','tom.lloyd@meh.com',NULL,NULL,'2016-05-12',1,1,NULL);
+INSERT INTO `expense_client_users` VALUES (7,1,'Christopher','Caplan','ccaplan@hotmail.co.uk',NULL,NULL,'2016-05-14',0,0),(8,1,'Dave','Meh','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-28',4,0),(9,1,'Bill','Meh','bil@meh.co.uk',NULL,NULL,'2016-05-03',1,0),(10,1,'Tom','Lloyd','tom.lloyd@meh.com',NULL,NULL,'2016-05-12',1,0),(11,0,'','','',NULL,NULL,'0000-00-00',NULL,0);
 /*!40000 ALTER TABLE `expense_client_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-13 15:49:59
+-- Dump completed on 2016-05-14  2:45:16

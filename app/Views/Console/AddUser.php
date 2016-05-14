@@ -43,11 +43,14 @@ use Core\Error;
                         <input id="postition" name="form-post" class="form-control col-md-7 col-xs-12" type="text">
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Band </label>
+					<div class="form-group">
+                      <label for="form-enabled" class="control-label col-md-3 col-sm-3 col-xs-12">Status </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="form-band" class="form-control col-md-7 col-xs-12" type="text" name="form-band">
-                      </div>
+							<select name="form-status"><?=$clientUser[0]->enabled?>
+								<option value="0" <?php $test = ($clientUser[0]->enabled == 0 ? "selected='selected'" : ""); echo $test;?>>Enabled</option>
+								<option value="1" <?php $test = ($clientUser[0]->enabled == 1 ? "selected='selected'" : ""); echo $test;?>>Disabled</option>
+							</select>
+						</div>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">

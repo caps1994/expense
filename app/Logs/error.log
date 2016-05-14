@@ -1,8 +1,0 @@
-2016-05-13 11:58AM - require(/var/www/expense/app/Views/Console/EditClientUsers.php): failed to open stream: No such file or directory in /var/www/expense/system/Core/View.php on line 41
-
-2016-05-13 14:58PM - Missing argument 3 for Helpers\Database::update(), called in /var/www/expense/app/Models/ClientUsers.php on line 35 and defined in /var/www/expense/system/Helpers/Database.php on line 138
-
-2016-05-13 14:59PM - Invalid argument supplied for foreach() in /var/www/expense/system/Helpers/Database.php on line 150
-
-2016-05-13 15:00PM - Invalid argument supplied for foreach() in /var/www/expense/system/Helpers/Database.php on line 150
-

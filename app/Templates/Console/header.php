@@ -105,10 +105,10 @@
                     </li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-group"></i> Posts Groups <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-group"></i> Band Groups <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="/console/post-groups">View Post Groups</a>
-                    </li>
+                    <li><a href="/console/band-groups/">View Band Groups</a></li>
+					<li><a href="/console/band-groups/add">Add Band Group</a></li>
                   </ul>
                 </li>
                 

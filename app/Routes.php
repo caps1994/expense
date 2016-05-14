@@ -25,14 +25,20 @@ Router::group('console', function(){
     Router::any('dashboard', 'App\Controllers\Console\ConsoleDashboard@index');
     
     Router::group('users', function(){
-        Router::any('', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
+        Router::get('', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
         Router::any('add', 'App\Controllers\Console\ConsoleUsers@addClientUser');
         Router::get('edit', 'App\Controllers\Console\ConsoleUsers@showClientUsers');
         Router::any('edit/(:num)', 'App\Controllers\Console\ConsoleUsers@editClientUser');
     });
+    
+    Router::group('band-groups', function(){
+        Router::get('', 'App\Controllers\Console\ConsoleBands@showBands');
+        Router::any('add', 'App\Controllers\Console\ConsoleBands@addBand');
+        Router::any('edit/(:num)', 'App\Controllers\Console\ConsoleBands@editBand');
+    });
 });
 Router::any('login', 'App\Controllers\Auth@login');
-Router::any('logout', 'App\Controllers\Auth@logout');
+Router::get('logout', 'App\Controllers\Auth@logout');
 Router::any('register', 'App\Controllers\Register@index');
 Router::get('thank-you', 'App\Controllers\Pages@thankyouPage');
 /** End default routes */
