@@ -53,7 +53,6 @@ class ConsoleUsers extends Controller
                              'surname' => ucfirst(strtolower(Request::post('form-surname'))),
                              'email' => Request::post('form-email'),
                              'band'  => Request::post('form-band'),
-                             'post' => Request::post('form-post'),
                              );
             
             if (Csrf::isTokenValid('csrfToken'))
@@ -68,10 +67,17 @@ class ConsoleUsers extends Controller
                     }
                     else
                     {
-                        $this->_client_users->addClientUser($details);
+                        
+                        $account_id = $this->_client_users->addClientUser($details);
+                        var_dump($account_id);
+                        
+                        $key = array('user_id' => (int)$account_id,
+                             'token_key' => md5(microtime().rand()));
+                        
+                        $this->_client_users->createActivationKey($key);
                         
                         $this->_email->send(array('address' => $details['email'],
-                                                  'subject' => 'You have been enrolled on Expense!',
+                                                  'subject' => 'You have been enrolled on Expense! - Please Activate now',
                                                   'message' => 'Thank you for registering,'
                                                   ));
                         Url::redirect('console/users/');

@@ -1,0 +1,137 @@
+Exception information:
+
+           Date: May 15, 2016 19:37PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('c71c9be941d83da7a8ed31f1fe3a6a88', '21')' at line 1
+
+           Code: 42000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 15, 2016 19:56PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('366a21b2d8121c89805c4fd69d594888', '22')' at line 1
+
+           Code: 42000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 15, 2016 19:58PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('83134b549eff31420134fa6f010a5eca', '23')' at line 1
+
+           Code: 42000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
+2016-05-15 20:03PM - ksort() expects parameter 1 to be array, string given in /Applications/MAMP/htdocs/expense/system/Helpers/Database.php on line 118
+
+Exception information:
+
+           Date: May 15, 2016 20:04PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('fd88685a3d433f6a2c02c9f12070515a', '25')' at line 1
+
+           Code: 42000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(81): App\Models\ClientUsers->createActivationKey(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 15, 2016 20:11PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('92ab5c8dfc81329455fd4898da546064', '26')' at line 1
+
+           Code: 42000
+
+           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
+#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
+#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
+#9 {main}
+
+           ---------
+

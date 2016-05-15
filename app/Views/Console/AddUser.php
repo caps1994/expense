@@ -37,21 +37,6 @@ use Core\Error;
                         <input type="text" id="form-email" name="form-email" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="form-post" class="control-label col-md-3 col-sm-3 col-xs-12">Postition </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="postition" name="form-post" class="form-control col-md-7 col-xs-12" type="text">
-                      </div>
-                    </div>
-					<div class="form-group">
-                      <label for="form-enabled" class="control-label col-md-3 col-sm-3 col-xs-12">Status </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-							<select name="form-status"><?=$clientUser[0]->enabled?>
-								<option value="0" <?php $test = ($clientUser[0]->enabled == 0 ? "selected='selected'" : ""); echo $test;?>>Enabled</option>
-								<option value="1" <?php $test = ($clientUser[0]->enabled == 1 ? "selected='selected'" : ""); echo $test;?>>Disabled</option>
-							</select>
-						</div>
-                    </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
