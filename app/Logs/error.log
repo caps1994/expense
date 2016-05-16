@@ -135,3 +135,81 @@ Exception information:
 
            ---------
 
+Exception information:
+
+           Date: May 16, 2016 14:00PM
+
+           Message: Call to undefined function App\Controllers\Console\getActivationKey()
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 82
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 16, 2016 15:08PM
+
+           Message: Call to undefined function App\Controllers\ClientUsers()
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/UserActivation.php
+
+           Line: 21
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Core/Router.php(205): App\Controllers\UserActivation->__construct()
+#1 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
+#2 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#3 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
+#4 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#5 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 16, 2016 15:14PM
+
+           Message: syntax error, unexpected ';', expecting ',' or ')'
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/UserActivation.php
+
+           Line: 32
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 [internal function]: spl_autoload_call('App\\Controllers...')
+#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+2016-05-16 15:20PM - Missing argument 2 for App\Models\ClientUsers::activateClientUser(), called in /var/www/expense/app/Controllers/UserActivation.php on line 38 and defined in /var/www/expense/app/Models/ClientUsers.php on line 51
+
+2016-05-16 15:20PM - ksort() expects parameter 1 to be array, null given in /var/www/expense/system/Helpers/Database.php on line 140
+
+2016-05-16 15:22PM - ksort() expects parameter 1 to be array, null given in /var/www/expense/system/Helpers/Database.php on line 140
+
