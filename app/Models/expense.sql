@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
 --
 -- Host: localhost    Database: expense
 -- ------------------------------------------------------
--- Server version	5.6.25
+-- Server version	5.7.12-0ubuntu1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -88,8 +88,9 @@ CREATE TABLE `expense_client_users` (
   `band` int(11) DEFAULT NULL,
   `enabled` int(11) DEFAULT '1',
   PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_client_users_1_idx` (`root_account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +99,7 @@ CREATE TABLE `expense_client_users` (
 
 LOCK TABLES `expense_client_users` WRITE;
 /*!40000 ALTER TABLE `expense_client_users` DISABLE KEYS */;
-INSERT INTO `expense_client_users` VALUES (7,1,'Christopher','Caplan','ccaplan@hotmail.co.uk',NULL,NULL,'2016-05-14',0,0),(8,1,'Dave','Meh','ccaplan@hotmail.co.uk',NULL,NULL,'2016-04-28',4,0),(28,1,'Harrison','Hughes','hughes@meh.com',NULL,NULL,'2016-05-15',NULL,1),(29,1,'Chris','Caplan','christopher.caplan@capatek.com',NULL,NULL,'2016-05-15',NULL,1);
+INSERT INTO `expense_client_users` VALUES (56,1,'Christopher','Caplan','ccaplan@hotmail.co.uk','$2y$10$yckqRhX0extSeiNRpm4zCObsTKWaJ1gyzbouUci.dY2sBB3wloPo.',NULL,'2016-05-17',NULL,0);
 /*!40000 ALTER TABLE `expense_client_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,9 +224,10 @@ DROP TABLE IF EXISTS `expense_user_activation_tokens`;
 CREATE TABLE `expense_user_activation_tokens` (
   `activation_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `token_key` varchar(255) NOT NULL,
+  `token_key` varchar(32) NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
   PRIMARY KEY (`activation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +236,6 @@ CREATE TABLE `expense_user_activation_tokens` (
 
 LOCK TABLES `expense_user_activation_tokens` WRITE;
 /*!40000 ALTER TABLE `expense_user_activation_tokens` DISABLE KEYS */;
-INSERT INTO `expense_user_activation_tokens` VALUES (2,27,'60bdc39c5e8ebdbcaf4fddfe3b1a45bc'),(3,28,'1571c72592bde634f8b980a87c72e1c3'),(4,29,'bda8fb7731ec232b842ab1a0cfa4bbe0');
 /*!40000 ALTER TABLE `expense_user_activation_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -247,4 +248,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-15 22:31:33
+-- Dump completed on 2016-05-17 18:08:11
