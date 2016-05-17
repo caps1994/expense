@@ -1,198 +1,103 @@
-Exception information:
-
-           Date: May 15, 2016 19:37PM
-
-           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('c71c9be941d83da7a8ed31f1fe3a6a88', '21')' at line 1
-
-           Code: 42000
-
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
-
-           Line: 128
-
-           Stack trace:
-
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
-#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
-#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
-#9 {main}
-
-           ---------
+2016-05-17 16:08PM - Missing argument 2 for App\Models\ClientUsers::getClientUser(), called in /var/www/expense/app/Controllers/UserActivation.php on line 84 and defined in /var/www/expense/app/Models/ClientUsers.php on line 19
 
 Exception information:
 
-           Date: May 15, 2016 19:56PM
+           Date: May 17, 2016 16:23PM
 
-           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('366a21b2d8121c89805c4fd69d594888', '22')' at line 1
-
-           Code: 42000
-
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
-
-           Line: 128
-
-           Stack trace:
-
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
-#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
-#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
-#9 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 15, 2016 19:58PM
-
-           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('83134b549eff31420134fa6f010a5eca', '23')' at line 1
-
-           Code: 42000
-
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
-
-           Line: 128
-
-           Stack trace:
-
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
-#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
-#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
-#9 {main}
-
-           ---------
-
-2016-05-15 20:03PM - ksort() expects parameter 1 to be array, string given in /Applications/MAMP/htdocs/expense/system/Helpers/Database.php on line 118
-
-Exception information:
-
-           Date: May 15, 2016 20:04PM
-
-           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('fd88685a3d433f6a2c02c9f12070515a', '25')' at line 1
-
-           Code: 42000
-
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
-
-           Line: 128
-
-           Stack trace:
-
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
-#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(81): App\Models\ClientUsers->createActivationKey(Array)
-#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
-#9 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 15, 2016 20:11PM
-
-           Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,user_id) VALUES ('92ab5c8dfc81329455fd4898da546064', '26')' at line 1
-
-           Code: 42000
-
-           File: /Applications/MAMP/htdocs/expense/system/Helpers/Database.php
-
-           Line: 128
-
-           Stack trace:
-
-           #0 /Applications/MAMP/htdocs/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /Applications/MAMP/htdocs/expense/app/Models/ClientUsers.php(41): Helpers\Database->insert('expense_user_ac...', Array)
-#2 /Applications/MAMP/htdocs/expense/app/Controllers/Console/ConsoleUsers.php(78): App\Models\ClientUsers->createActivationKey(Array)
-#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#4 /Applications/MAMP/htdocs/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /Applications/MAMP/htdocs/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#6 /Applications/MAMP/htdocs/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/MAMP/htdocs/expense/app/Routes.php(58): Core\Router->dispatch()
-#8 /Applications/MAMP/htdocs/expense/public/index.php(74): require('/Applications/M...')
-#9 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 16, 2016 14:00PM
-
-           Message: Call to undefined function App\Controllers\Console\getActivationKey()
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
 
            Code: 0
 
-           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
 
-           Line: 82
+           Line: 169
 
            Stack trace:
 
-           #0 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
-#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
-#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#4 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
-#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#6 {main}
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 16, 2016 15:08PM
+           Date: May 17, 2016 16:24PM
 
-           Message: Call to undefined function App\Controllers\ClientUsers()
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+
+           Code: 0
+
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+
+           Line: 169
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 17, 2016 16:26PM
+
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+
+           Code: 0
+
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+
+           Line: 169
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 17, 2016 16:27PM
+
+           Message: syntax error, unexpected 'if' (T_IF)
 
            Code: 0
 
            File: /var/www/expense/app/Controllers/UserActivation.php
 
-           Line: 21
-
-           Stack trace:
-
-           #0 /var/www/expense/system/Core/Router.php(205): App\Controllers\UserActivation->__construct()
-#1 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
-#2 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#3 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
-#4 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#5 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 16, 2016 15:14PM
-
-           Message: syntax error, unexpected ';', expecting ',' or ')'
-
-           Code: 0
-
-           File: /var/www/expense/app/Controllers/UserActivation.php
-
-           Line: 32
+           Line: 65
 
            Stack trace:
 
@@ -201,15 +106,121 @@ Exception information:
 #2 [internal function]: spl_autoload_call('App\\Controllers...')
 #3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
 #4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#5 /var/www/expense/app/Routes.php(58): Core\Router->dispatch()
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
 #6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
 #7 {main}
 
            ---------
 
-2016-05-16 15:20PM - Missing argument 2 for App\Models\ClientUsers::activateClientUser(), called in /var/www/expense/app/Controllers/UserActivation.php on line 38 and defined in /var/www/expense/app/Models/ClientUsers.php on line 51
+Exception information:
 
-2016-05-16 15:20PM - ksort() expects parameter 1 to be array, null given in /var/www/expense/system/Helpers/Database.php on line 140
+           Date: May 17, 2016 16:28PM
 
-2016-05-16 15:22PM - ksort() expects parameter 1 to be array, null given in /var/www/expense/system/Helpers/Database.php on line 140
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+
+           Code: 0
+
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+
+           Line: 169
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 17, 2016 16:28PM
+
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+
+           Code: 0
+
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+
+           Line: 169
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 17, 2016 16:29PM
+
+           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+
+           Code: 0
+
+           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+
+           Line: 169
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
+#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
+#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
+#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
+#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
+#5 [internal function]: App\Controllers\UserActivation->changePassword()
+#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
+#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#11 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 17, 2016 16:30PM
+
+           Message: syntax error, unexpected ')'
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/UserActivation.php
+
+           Line: 87
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 [internal function]: spl_autoload_call('App\\Controllers...')
+#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
 

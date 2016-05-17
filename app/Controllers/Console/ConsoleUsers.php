@@ -79,7 +79,8 @@ class ConsoleUsers extends Controller
                         $this->_email->send(array('address' => $details['email'],
                                                   'subject' => 'You have been enrolled on Expense! - Please Activate now',
                                                   'message' => 'Thank you for registering, please click on the link below
-                                                  ' . SITEURL.'useractivation/activate/'.$this->_client_users->getActivationKey($account_id)->token_key.'?id='.$this->_client_users->getActivationKey($account_id)->user_id
+                                                  ' . SITEURL.'useractivation/activate/'.$this->_client_users->getActivationKey($account_id)->token_key.
+                                                  '?id='.$this->_client_users->getActivationKey($account_id)->user_id.'&root='.$this->_client_users->getClientUser(Session::get('userID'), $account_id)[0]->root_account_id
                                                   ));
                         Url::redirect('console/users/');
                     }

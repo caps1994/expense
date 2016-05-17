@@ -42,7 +42,8 @@ Router::get('logout', 'App\Controllers\Auth@logout');
 Router::any('register', 'App\Controllers\Register@index');
 Router::get('thank-you', 'App\Controllers\Pages@thankyouPage');
 Router::get('useractivation', 'App\Controllers\UserActivation@index');
-Router::get('useractivation/activate/(:any)', 'App\Controllers\UserActivation@activate');
+Router::any('useractivation/activate/(:any)', 'App\Controllers\UserActivation@activate');
+Router::any('useractivation/activate', 'App\Controllers\UserActivation@changePassword');
 
 /** End default routes */
 
