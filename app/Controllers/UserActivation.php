@@ -43,12 +43,13 @@ class UserActivation extends Controller
         {
             if($token === $user_token)
             {
+                $error = array();
                 $this->_token->activateClientUser(array('enabled' => 0), array('user_id' => Request::get('id')));
                 $data['csrfToken'] = Csrf::makeToken('editClientUser');
                 $data['user_id'] = base64_encode(Request::get('id'));
                 $data['root_account'] = base64_encode(Request::get('root'));
                 View::renderTemplate('header', $data);
-                View::render('UserActivation/Activate', $data);
+                View::render('UserActivation/Activate', $data, $error);
                 View::renderTemplate('footer', $data);
             }
             else
@@ -71,7 +72,7 @@ class UserActivation extends Controller
             if (Csrf::isTokenValid('csrfToken'))
             {
                 if(isset($details['password']))
-                { echo "im here";
+                { 
                     if($details['password'] != $password_confirm)
                     {
                         $error[] = 'Passwords do not match';
