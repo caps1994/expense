@@ -15,7 +15,7 @@ use Core\Error;
                 <div class="x_content">
                   <br />
                   <?=Error::display($error);?>
-                  <form id="demo-form2" method="post" action="/useractivation/activate" data-parsley-validate class="form-horizontal form-label-left">
+                  <form id="demo-form2" method="post"  data-parsley-validate class="form-horizontal form-label-left">
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-password">Password<span class="required">*</span>
                       </label>

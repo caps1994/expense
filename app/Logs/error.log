@@ -224,3 +224,110 @@ Exception information:
 
            ---------
 
+Exception information:
+
+           Date: May 19, 2016 14:25PM
+
+           Message: Call to undefined method App\Models\ClientUsers::deleteActivationToken()
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/UserActivation.php
+
+           Line: 83
+
+           Stack trace:
+
+           #0 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
+#1 [internal function]: App\Controllers\UserActivation->activate('5c1872b5e6e34a6...')
+#2 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#3 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 19, 2016 14:25PM
+
+           Message: SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect DOUBLE value: 'NTk='
+
+           Code: 22007
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 208
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(208): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(60): Helpers\Database->delete('expense_user_ac...', Array)
+#2 /var/www/expense/app/Controllers/UserActivation.php(83): App\Models\ClientUsers->deleteActivationToken(Array)
+#3 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
+#4 [internal function]: App\Controllers\UserActivation->activate('5c1872b5e6e34a6...')
+#5 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#6 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
+#7 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#8 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#9 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#10 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 19, 2016 14:35PM
+
+           Message: SQLSTATE[HY000]: General error: 1364 Field 'salt' doesn't have a default value
+
+           Code: HY000
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
+#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 19, 2016 14:36PM
+
+           Message: SQLSTATE[HY000]: General error: 1364 Field 'level' doesn't have a default value
+
+           Code: HY000
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
+#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
+#3 [internal function]: App\Controllers\Register->index()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+

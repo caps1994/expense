@@ -51,8 +51,13 @@ class ClientUsers extends Model
     public function activateClientUser($data, $id)
     {
         $this->db->update(PREFIX.'client_users', $data, $id);
-        $this->db->delete(PREFIX.user_activation_tokens, $id);
+        //$this->db->delete(PREFIX.user_activation_tokens, $id);
         return $this->db->lastInsertId('account_id');
+    }
+    
+    public function deleteActivationToken($id)
+    {
+        $this->db->delete(PREFIX.user_activation_tokens, $id);
     }
     
     public function changePassword($data, $userid)

@@ -42,9 +42,8 @@ class UserActivation extends Controller
         else
         {
             if($token === $user_token)
-            {
-                $error = array();
-                $this->_token->activateClientUser(array('enabled' => 0), array('user_id' => Request::get('id')));
+            {   
+                $error = $this->changePassword();
                 $data['csrfToken'] = Csrf::makeToken('editClientUser');
                 $data['user_id'] = base64_encode(Request::get('id'));
                 $data['root_account'] = base64_encode(Request::get('root'));
@@ -76,9 +75,12 @@ class UserActivation extends Controller
                     if($details['password'] != $password_confirm)
                     {
                         $error[] = 'Passwords do not match';
+                        return $error;
                     }
                     else
                     {
+                        $this->_token->activateClientUser(array('enabled' => 0), array('user_id' => base64_decode(Request::post('user_id'))));
+                        $this->_token->deleteActivationToken(array('user_id' => base64_decode(Request::post('user_id'))));
                         $details['password'] = Password::make($details['password']);
                         $this->_token->changePassword($details , array('user_id' =>  base64_decode(Request::post('user_id'))));
                         $this->_email->send(array('address' => $this->_token->getClientUser(base64_decode(Request::post('root')), base64_decode(Request::post('user_id')))[0]->email,
