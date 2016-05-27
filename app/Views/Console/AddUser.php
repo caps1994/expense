@@ -41,7 +41,7 @@ use Core\Error;
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <input type="hidden" name="token" value="<?php echo $data['csrfToken']; ?>" />
-                        <button type="submit" class="btn btn-primary">Cancel</button>
+                        <a href="/console/users/"><button type="button" class="btn btn-primary">Cancel</button></a>
                         <button type="submit" class="btn btn-success">Submit</button>
                       </div>
                     </div>

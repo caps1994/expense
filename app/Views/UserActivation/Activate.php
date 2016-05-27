@@ -20,14 +20,14 @@ use Core\Error;
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-password">Password<span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" name="form-password" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="password" id="first-name" name="form-password" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="form-password-confirm">Confirm password <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="form-surname" name="form-password-confirm" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="password" id="form-surname" name="form-password-confirm" required="required" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <div class="ln_solid"></div>

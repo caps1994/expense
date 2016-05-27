@@ -26,15 +26,15 @@ class ConsoleUsers extends Controller
     
     public function showClientUsers()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
         $data['title'] = 'Console - Users';
-        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
+        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('rootuserID'));
         $data['firstname'] = $userDetails->firstname;
         $data['lastname'] = $userDetails->surname;
-        $data['clientUsers'] = $this->_client_users->getClientUsers(Session::get('userID'));
+        $data['clientUsers'] = $this->_client_users->getClientUsers(Session::get('rootuserID'));
         View::renderTemplate('header', $data, 'Console');
         View::render('Console/ShowClientUsers', $data);
         View::renderTemplate('footer', $data, 'Console');
@@ -42,17 +42,21 @@ class ConsoleUsers extends Controller
     
     public function addClientUser()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
         if(Request::isPost())
         {
-            $details = array('root_account_id' => Session::get('userID'),
-                             'firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
+            $details = array('firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
                              'surname' => ucfirst(strtolower(Request::post('form-surname'))),
                              'email' => Request::post('form-email'),
                              'band'  => Request::post('form-band'),
+                             'enabled' => Request::post('form-status'),
+                             'job_title' => Request::post('form-jtitle'),
+                             'is_manager' => (Request::post('form-ismanager') == NULL ? 1 : Request::post('form-ismanager')),
+                             'department' => Request::post('form-department'),
+                             'manager' => Request::post('form-manager'),
                              );
             
             if (Csrf::isTokenValid('csrfToken'))
@@ -67,22 +71,27 @@ class ConsoleUsers extends Controller
                     }
                     else
                     {
-                        
-                        $account_id = $this->_client_users->addClientUser($details);
-                        var_dump($account_id);
-                        
-                        $key = array('user_id' => (int)$account_id,
-                             'token_key' => md5(microtime().rand()));
-                        
-                        $this->_client_users->createActivationKey($key);
-                        
-                        $this->_email->send(array('address' => $details['email'],
-                                                  'subject' => 'You have been enrolled on Expense! - Please Activate now',
-                                                  'message' => 'Thank you for registering, please click on the link below
-                                                  ' . SITEURL.'useractivation/activate/'.$this->_client_users->getActivationKey($account_id)->token_key.
-                                                  '?id='.$this->_client_users->getActivationKey($account_id)->user_id.'&root='.$this->_client_users->getClientUser(Session::get('userID'), $account_id)[0]->root_account_id
-                                                  ));
-                        Url::redirect('console/users/');
+                        if($this->_root_user->getEmailCount($details['email'])->count >= 1)
+                        {
+                            $error[] = 'Email in already in use';
+                        }
+                        else
+                        {
+                                $account_id = $this->_client_users->addClientUser($details);
+                            
+                            $key = array('user_id' => (int)$account_id,
+                                 'token_key' => md5(microtime().rand()));
+                            
+                            $this->_client_users->createActivationKey($key);
+                            
+                            $this->_email->send(array('address' => $details['email'],
+                                                      'subject' => 'You have been enrolled on Expense! - Please Activate now',
+                                                      'message' => 'Thank you for registering, please click on the link below
+                                                      ' . SITEURL.'useractivation/activate/'.$this->_client_users->getActivationKey($account_id)->token_key.
+                                                      '?id='.$this->_client_users->getActivationKey($account_id)->user_id.'&root='.$this->_client_users->getClientUser(Session::get('rootuserID'), $account_id)[0]->root_account_id
+                                                      ));
+                            Url::redirect('console/users/');
+                        } 
                     }
                 }
             }
@@ -102,17 +111,22 @@ class ConsoleUsers extends Controller
     
     public function editClientUser($user_id)
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
-       if(Request::isPost())
-        {
+        if(Request::isPost())
+         {
+
             $details = array('firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
                              'surname' => ucfirst(strtolower(Request::post('form-surname'))),
                              'email' => Request::post('form-email'),
                              'band'  => Request::post('form-band'),
                              'enabled' => Request::post('form-status'),
+                             'job_title' => Request::post('form-jtitle'),
+                             'is_manager' => (Request::post('form-ismanager') == NULL ? 1 : Request::post('form-ismanager')),
+                             'department' => Request::post('form-department'),
+                             'manager' => Request::post('form-manager'),
                              );
             
             if (Csrf::isTokenValid('csrfToken'))
@@ -127,25 +141,31 @@ class ConsoleUsers extends Controller
                     }
                     else
                     {
-                        $this->_client_users->updateClientUser($details, array('user_id' => $user_id));
+                        if($this->_root_user->getEmailCount($details['email'])->count >= 1)
+                        {
+                            $error[] = 'Email in already in use';
+                        }
+                        else
+                        {
+                            $this->_client_users->updateClientUser($details, array('user_id' => $user_id));
                         
-                        Url::redirect('console/users/');
+                            Url::redirect('console/users/');
+                        }
                     }
                 }
             }
-        }
+         }
         
-        
-        $error = array();
-        $data['title'] = 'Console - Edit User';
-        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
-        $data['firstname'] = $userDetails->firstname;
-        $data['lastname'] = $userDetails->surname;
-        $data['clientUser'] = $this->_client_users->getClientUser(Session::get('userID'), $user_id);
-        $data['csrfToken'] = Csrf::makeToken('editClientUser');
-        View::renderTemplate('header', $data, 'Console');
-        View::render('Console/EditClientUsers', $data, $error);
-        View::renderTemplate('footer', $data, 'Console');
+            $data['title'] = 'Console - Edit User';
+            $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('rootuserID'));
+            $data['firstname'] = $userDetails->firstname;
+            $data['lastname'] = $userDetails->surname;
+            $data['clientUser'] = $this->_client_users->getClientUser(Session::get('rootuserID'), $user_id);
+            $data['managers'] = $this->_client_users->getManagers(Session::get('rootuserID'));
+            $data['csrfToken'] = Csrf::makeToken('editClientUser');
+            View::renderTemplate('header', $data, 'Console');
+            View::render('Console/EditClientUsers', $data, $error);
+            View::renderTemplate('footer', $data, 'Console');
         
         
     }

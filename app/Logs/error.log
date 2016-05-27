@@ -1,8 +1,53 @@
-2016-05-17 16:08PM - Missing argument 2 for App\Models\ClientUsers::getClientUser(), called in /var/www/expense/app/Controllers/UserActivation.php on line 84 and defined in /var/www/expense/app/Models/ClientUsers.php on line 19
+Exception information:
+
+           Date: May 25, 2016 11:42AM
+
+           Message: Class 'App\Models\ClientUser' not found
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Auth.php
+
+           Line: 23
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
+#1 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#2 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#3 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#4 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#5 {main}
+
+           ---------
 
 Exception information:
 
-           Date: May 17, 2016 16:23PM
+           Date: May 25, 2016 11:43AM
+
+           Message: Call to undefined function App\Controllers\getHash()
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Auth.php
+
+           Line: 43
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 25, 2016 11:47AM
 
            Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
 
@@ -18,20 +63,21 @@ Exception information:
 #1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
 #2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
 #3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
+#4 /var/www/expense/app/Controllers/UserActivation.php(88): App\Controllers\Email->send(Array)
+#5 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
+#6 [internal function]: App\Controllers\UserActivation->activate('cfd53e7975fe1ff...')
+#7 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#8 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
+#9 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#10 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#11 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#12 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 17, 2016 16:24PM
+           Date: May 25, 2016 14:33PM
 
            Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
 
@@ -47,57 +93,29 @@ Exception information:
 #1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
 #2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
 #3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
+#4 /var/www/expense/app/Controllers/UserActivation.php(88): App\Controllers\Email->send(Array)
+#5 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
+#6 [internal function]: App\Controllers\UserActivation->activate('63581f5ae69c80d...')
+#7 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#8 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
+#9 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#10 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#11 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#12 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 17, 2016 16:26PM
+           Date: May 25, 2016 15:14PM
 
-           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
-
-           Code: 0
-
-           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
-
-           Line: 169
-
-           Stack trace:
-
-           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
-#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
-#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
-#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(85): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 17, 2016 16:27PM
-
-           Message: syntax error, unexpected 'if' (T_IF)
+           Message: syntax error, unexpected 'if' (T_IF), expecting ',' or ';'
 
            Code: 0
 
-           File: /var/www/expense/app/Controllers/UserActivation.php
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
 
-           Line: 65
+           Line: 50
 
            Stack trace:
 
@@ -114,189 +132,144 @@ Exception information:
 
 Exception information:
 
-           Date: May 17, 2016 16:28PM
+           Date: May 25, 2016 15:47PM
 
-           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
-
-           Code: 0
-
-           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
-
-           Line: 169
-
-           Stack trace:
-
-           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
-#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
-#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
-#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
-
-           ---------
-
-Exception information:
-
-           Date: May 17, 2016 16:28PM
-
-           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+           Message: Cannot use object of type stdClass as array
 
            Code: 0
 
-           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+           File: /var/www/expense/app/Controllers/Auth.php
 
-           Line: 169
+           Line: 39
 
            Stack trace:
 
-           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
-#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
-#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
-#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 17, 2016 16:29PM
+           Date: May 25, 2016 15:47PM
 
-           Message: The parameters passed to the API were invalid. Check your inputs! 'to' parameter is not a valid address. please check documentation
+           Message: Cannot use object of type stdClass as array
 
            Code: 0
 
-           File: /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php
+           File: /var/www/expense/app/Controllers/Auth.php
 
-           Line: 169
+           Line: 40
 
            Stack trace:
 
-           #0 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Connection/RestClient.php(88): Mailgun\Connection\RestClient->responseHandler(Object(GuzzleHttp\Message\Response))
-#1 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(106): Mailgun\Connection\RestClient->post('sandboxb3198e55...', Array, Array)
-#2 /var/www/expense/vendor/mailgun/mailgun-php/src/Mailgun/Mailgun.php(53): Mailgun\Mailgun->post('sandboxb3198e55...', Array, Array)
-#3 /var/www/expense/app/Controllers/Email.php(26): Mailgun\Mailgun->sendMessage('sandboxb3198e55...', Array)
-#4 /var/www/expense/app/Controllers/UserActivation.php(86): App\Controllers\Email->send(Array)
-#5 [internal function]: App\Controllers\UserActivation->changePassword()
-#6 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#7 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'changePassword', Array)
-#8 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#9 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#10 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#11 {main}
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 17, 2016 16:30PM
+           Date: May 25, 2016 15:48PM
 
-           Message: syntax error, unexpected ')'
+           Message: Cannot use object of type stdClass as array
 
            Code: 0
 
-           File: /var/www/expense/app/Controllers/UserActivation.php
+           File: /var/www/expense/app/Controllers/Auth.php
 
-           Line: 87
+           Line: 40
 
            Stack trace:
 
-           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
-#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
-#2 [internal function]: spl_autoload_call('App\\Controllers...')
-#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
-#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#7 {main}
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 19, 2016 14:25PM
+           Date: May 25, 2016 15:49PM
 
-           Message: Call to undefined method App\Models\ClientUsers::deleteActivationToken()
+           Message: Cannot use object of type stdClass as array
 
            Code: 0
 
-           File: /var/www/expense/app/Controllers/UserActivation.php
+           File: /var/www/expense/app/Controllers/Auth.php
 
-           Line: 83
+           Line: 40
 
            Stack trace:
 
-           #0 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
-#1 [internal function]: App\Controllers\UserActivation->activate('5c1872b5e6e34a6...')
-#2 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#3 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
-#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#7 {main}
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 19, 2016 14:25PM
+           Date: May 25, 2016 15:50PM
 
-           Message: SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect DOUBLE value: 'NTk='
+           Message: Call to a member function getEmailCount() on null
 
-           Code: 22007
+           Code: 0
 
-           File: /var/www/expense/system/Helpers/Database.php
+           File: /var/www/expense/app/Controllers/Auth.php
 
-           Line: 208
+           Line: 56
 
            Stack trace:
 
-           #0 /var/www/expense/system/Helpers/Database.php(208): PDOStatement->execute()
-#1 /var/www/expense/app/Models/ClientUsers.php(60): Helpers\Database->delete('expense_user_ac...', Array)
-#2 /var/www/expense/app/Controllers/UserActivation.php(83): App\Models\ClientUsers->deleteActivationToken(Array)
-#3 /var/www/expense/app/Controllers/UserActivation.php(46): App\Controllers\UserActivation->changePassword()
-#4 [internal function]: App\Controllers\UserActivation->activate('5c1872b5e6e34a6...')
-#5 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#6 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'activate', Array)
-#7 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
-#8 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
-#9 /var/www/expense/public/index.php(74): require('/var/www/expens...')
-#10 {main}
+           #0 [internal function]: App\Controllers\Auth->login()
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
 
            ---------
 
 Exception information:
 
-           Date: May 19, 2016 14:35PM
+           Date: May 26, 2016 13:46PM
 
-           Message: SQLSTATE[HY000]: General error: 1364 Field 'salt' doesn't have a default value
+           Message: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'band' at row 1
 
            Code: HY000
 
            File: /var/www/expense/system/Helpers/Database.php
 
-           Line: 128
+           Line: 170
 
            Stack trace:
 
-           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
-#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
-#3 [internal function]: App\Controllers\Register->index()
+           #0 /var/www/expense/system/Helpers/Database.php(170): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(35): Helpers\Database->update('expense_client_...', Array, Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(129): App\Models\ClientUsers->updateClientUser(Array, Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('60')
 #4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
 #6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
 #7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
 #8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
@@ -306,11 +279,65 @@ Exception information:
 
 Exception information:
 
-           Date: May 19, 2016 14:36PM
+           Date: May 26, 2016 13:47PM
 
-           Message: SQLSTATE[HY000]: General error: 1364 Field 'level' doesn't have a default value
+           Message: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'band' at row 1
 
            Code: HY000
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 170
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(170): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(35): Helpers\Database->update('expense_client_...', Array, Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(129): App\Models\ClientUsers->updateClientUser(Array, Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 26, 2016 15:52PM
+
+           Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager' in 'field list'
+
+           Code: 42S22
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 170
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(170): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(35): Helpers\Database->update('expense_client_...', Array, Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(132): App\Models\ClientUsers->updateClientUser(Array, Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 26, 2016 15:55PM
+
+           Message: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'root_account_id' cannot be null
+
+           Code: 23000
 
            File: /var/www/expense/system/Helpers/Database.php
 
@@ -319,11 +346,449 @@ Exception information:
            Stack trace:
 
            #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
-#1 /var/www/expense/app/Models/RootUser.php(42): Helpers\Database->insert('expense_root_ac...', Array)
-#2 /var/www/expense/app/Controllers/Register.php(59): App\Models\RootUser->register(Array)
-#3 [internal function]: App\Controllers\Register->index()
+#1 /var/www/expense/app/Models/Band.php(27): Helpers\Database->insert('expense_band_gr...', Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleBands.php(68): App\Models\Band->addBand(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleBands->addBand()
 #4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
-#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addBand', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 10:30AM
+
+           Message: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'is_manager' cannot be null
+
+           Code: 23000
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 170
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(170): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(35): Helpers\Database->update('expense_client_...', Array, Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(132): App\Models\ClientUsers->updateClientUser(Array, Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('60')
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 10:41AM
+
+           Message: syntax error, unexpected ')'
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 110
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 [internal function]: spl_autoload_call('App\\Controllers...')
+#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 10:51AM
+
+           Message: syntax error, unexpected end of file
+
+           Code: 0
+
+           File: /var/www/expense/app/Views/Console/EditClientUsers.php
+
+           Line: 97
+
+           Stack trace:
+
+           #0 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(150): Core\View::render('Console/EditCli...', Array, Array)
+#1 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#2 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#3 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+2016-05-27 10:54AM - Invalid argument supplied for foreach() in /var/www/expense/app/Views/Console/EditClientUsers.php on line 69
+
+Exception information:
+
+           Date: May 27, 2016 11:06AM
+
+           Message: Cannot use object of type stdClass as array
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 149
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 11:12AM
+
+           Message: Cannot use object of type stdClass as array
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 149
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 11:16AM
+
+           Message: syntax error, unexpected ';', expecting ',' or ')'
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 149
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 [internal function]: spl_autoload_call('App\\Controllers...')
+#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 11:16AM
+
+           Message: Call to undefined method App\Models\ClientUsers::getUseDetailsFromID()
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 149
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 11:19AM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(15): Helpers\Database->select('SELECT * FROM e...', Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(148): App\Models\ClientUsers->getManagers('1')
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 11:19AM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(15): Helpers\Database->select('SELECT * FROM e...', Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(148): App\Models\ClientUsers->getManagers('1')
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 13:13PM
+
+           Message: Class 'App\Controllers\Console\Reques' not found
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 119
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 13:13PM
+
+           Message: Class 'App\Controllers\Console\Reques' not found
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/Console/ConsoleUsers.php
+
+           Line: 119
+
+           Stack trace:
+
+           #0 [internal function]: App\Controllers\Console\ConsoleUsers->editClientUser('64')
+#1 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#2 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'editClientUser', Array)
+#3 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#4 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#5 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#6 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:05PM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(76): Helpers\Database->select('SELECT count(em...', Array)
+#2 /var/www/expense/app/Controllers/Auth.php(60): App\Models\ClientUsers->getEmailCount('christopher.cap...')
+#3 [internal function]: App\Controllers\Auth->login()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:10PM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(76): Helpers\Database->select('SELECT count(em...', Array)
+#2 /var/www/expense/app/Controllers/Auth.php(59): App\Models\ClientUsers->getEmailCount('christopher.cap...')
+#3 [internal function]: App\Controllers\Auth->login()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:12PM
+
+           Message: syntax error, unexpected 'blic' (T_STRING), expecting function (T_FUNCTION)
+
+           Code: 0
+
+           File: /var/www/expense/app/Models/ClientUsers.php
+
+           Line: 86
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Models\\Clie...')
+#2 /var/www/expense/app/Controllers/Auth.php(23): spl_autoload_call('App\\Models\\Clie...')
+#3 /var/www/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
+#4 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#5 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#6 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#7 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#8 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:12PM
+
+           Message: syntax error, unexpected 'blic' (T_STRING), expecting function (T_FUNCTION)
+
+           Code: 0
+
+           File: /var/www/expense/app/Models/ClientUsers.php
+
+           Line: 86
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Models\\Clie...')
+#2 /var/www/expense/app/Controllers/Auth.php(23): spl_autoload_call('App\\Models\\Clie...')
+#3 /var/www/expense/system/Core/Router.php(205): App\Controllers\Auth->__construct()
+#4 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#5 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#6 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#7 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#8 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:13PM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(76): Helpers\Database->select('SELECT count(em...', Array)
+#2 /var/www/expense/app/Controllers/Auth.php(59): App\Models\ClientUsers->getEmailCount('christopher.cap...')
+#3 [internal function]: App\Controllers\Auth->login()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: May 27, 2016 14:14PM
+
+           Message: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+
+           Code: HY093
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 102
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(102): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(76): Helpers\Database->select('SELECT count(em...', Array)
+#2 /var/www/expense/app/Controllers/Auth.php(60): App\Models\ClientUsers->getEmailCount('christopher.cap...')
+#3 [internal function]: App\Controllers\Auth->login()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'login', Array)
 #6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
 #7 /var/www/expense/app/Routes.php(59): Core\Router->dispatch()
 #8 /var/www/expense/public/index.php(74): require('/var/www/expens...')

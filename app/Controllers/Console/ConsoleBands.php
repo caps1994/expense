@@ -24,15 +24,15 @@ class ConsoleBands extends Controller
     
     public function showBands()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
         $data['title'] = 'Console - Users';
-        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
+        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('rootuserID'));
         $data['firstname'] = $userDetails->firstname;
         $data['lastname'] = $userDetails->surname;
-        $data['bands'] = $this->_band_groups->getBands(Session::get('userID'));
+        $data['bands'] = $this->_band_groups->getBands(Session::get('rootuserID'));
         View::renderTemplate('header', $data, 'Console');
         View::render('Console/ShowBands', $data);
         View::renderTemplate('footer', $data, 'Console');
@@ -40,13 +40,13 @@ class ConsoleBands extends Controller
     
     public function addBand()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
         if(Request::isPost())
         {
-            $details = array('root_account_id' => Session::get('userID'),
+            $details = array('root_account_id' => Session::get('rootuserID'),
                              'band_group_name' => ucfirst(strtolower(Request::post('form-band-group'))),
                              'max_spend' => ucfirst(strtolower(Request::post('form-max-spend'))),
                              'notes' => Request::post('form-notes'),
@@ -87,7 +87,7 @@ class ConsoleBands extends Controller
     
     public function editBand($band_group_id)
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         
@@ -123,10 +123,10 @@ class ConsoleBands extends Controller
         
         
         $data['title'] = 'Console - Edit Band';
-        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
+        $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('rootuserID'));
         $data['firstname'] = $userDetails->firstname;
         $data['lastname'] = $userDetails->surname;
-        $data['band'] = $this->_band_groups->getBand(Session::get('userID'), $band_group_id);
+        $data['band'] = $this->_band_groups->getBand(Session::get('rootuserID'), $band_group_id);
         $data['csrfToken'] = Csrf::makeToken('editBandgroup');
         View::renderTemplate('header', $data, 'Console');
         View::render('Console/EditBand', $data, $error);

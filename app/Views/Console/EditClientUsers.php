@@ -43,14 +43,44 @@ use Core\Error;
                         <input id="form-band" class="form-control col-md-7 col-xs-12" type="text" name="form-band" value="<?=$clientUser[0]->band?>">
                       </div>
                     </div>
-					<div class="form-group">
+										<div class="form-group">
+                      <label for="form-department" class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="form-department" class="form-control col-md-7 col-xs-12" type="text" name="form-department" value="<?=$clientUser[0]->department?>">
+                      </div>
+                    </div>
+										<div class="form-group">
+                      <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Job Title </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="form-jtitle" class="form-control col-md-7 col-xs-12" type="text" name="form-jtitle" value="<?=$clientUser[0]->job_title?>">
+                      </div>
+                    </div>
+										<?php if ($managers != NULL):?>
+										<div class="form-group">
+                      <label for="form-manger" class="control-label col-md-3 col-sm-3 col-xs-12">Manager </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+											<select name="form-manager">
+												<?php foreach($managers as $manager):?>
+												<option value="<?=$manager->user_id?>"><?=$manager->firstname . ' ' . $manager->surname?></option>
+												<?php endforeach?>
+											</select>
+										</div>
+                    </div>
+										<?php endif?>
+										<div class="form-group">
+                      <label for="form-ismanager" class="control-label col-md-3 col-sm-3 col-xs-12">Is this User a Manager? </label>
+                      <div class="col-md-1 col-sm-1 col-xs-12">
+                        <input id="form-ismanager" class="form-control col-md-7 col-xs-12" type="checkbox" name="form-ismanager" value="0"  <?php $manager = ($clientUser[0]->is_manager == 0  ? "checked" : ""); echo $manager;?>>
+                      </div>
+                    </div>
+										<div class="form-group">
                       <label for="form-enabled" class="control-label col-md-3 col-sm-3 col-xs-12">Status </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-							<select name="form-status"><?=$clientUser[0]->enabled?>
-								<option value="0" <?php $test = ($clientUser[0]->enabled == 0 ? "selected='selected'" : ""); echo $test;?>>Enabled</option>
-								<option value="1" <?php $test = ($clientUser[0]->enabled == 1 ? "selected='selected'" : ""); echo $test;?>>Disabled</option>
-							</select>
-						</div>
+											<select name="form-status">
+												<option value="0" <?php $test = ($clientUser[0]->enabled == 0 ? "selected='selected'" : ""); echo $test;?>>Enabled</option>
+												<option value="1" <?php $test = ($clientUser[0]->enabled == 1 ? "selected='selected'" : ""); echo $test;?>>Disabled</option>
+											</select>
+										</div>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">

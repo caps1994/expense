@@ -2,65 +2,61 @@
 			<div class="right_col" role="main">
 
 				<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="dashboard_graph">
+                      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+						<?php if ($clientUsers != NULL):?>
+                        <ul class="pagination pagination-split">
+                          <li><a href="#">A</a></li>
+                          <li><a href="#">B</a></li>
+                          <li><a href="#">C</a></li>
+                          <li><a href="#">D</a></li>
+                          <li><a href="#">E</a></li>
+                          <li>...</li>
+                          <li><a href="#">W</a></li>
+                          <li><a href="#">X</a></li>
+                          <li><a href="#">Y</a></li>
+                          <li><a href="#">Z</a></li>
+                        </ul>
+                      </div>
 
-							<div class="row x_title">
-								<div class="col-md-12">
-									<h3>Users</h3>
-								</div>
-
-							</div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-					<?php if ($clientUsers != NULL):?>
-					<div class="table-responsive">
-						
-					
-                    <table class="table table-striped responsive-utilities jambo_table bulk_action">
-                            <thead>
-                                <tr class="headings">
-                                    <th class="column-title">ID </th>
-                                    <th class="column-title">Firstname </th>
-                                    <th class="column-title">Surname </th>
-                                    <th class="column-title">Email </th>
-                                    <th class="column-title">Status </th>
-                                    <th class="column-title no-link last"><span class="nobr">Action</span>
-                                    </th>
-                                    <th class="bulk-actions" colspan="7">
-                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-								<?php
+                      <div class="clearfix"></div>
+							<?php
 								$i = 0;
 								foreach($clientUsers as $user):
 									$i++
-								?>
-                                <tr class="<?php echo ($i % 2 == 0 ? "even" : "odd");?>  pointer">
-                                    <td class=" "><?=$user->user_id?></td>
-                                    <td class=" "><?=$user->firstname?></td>
-                                    <td class=" "><?=$user->surname?></td>
-                                    <td class=" "><?=$user->email?></td>
-									<?php $status = ($user->enabled == 0 ? "Enabled" : "Disabled");?>
-                                    <td class=" "><?=$status?></td>
-                                    <td class=" last"><a href="/console/users/edit/<?=$user->user_id?>">View</a></td>
-                                </tr>
-								<?php endforeach;?>
-                            </tbody>
-                        </table>
-					</div>
-					<?php else:?>
-					
-						<h3>There are no users added yet, add some!</h3>
-						<a href="/console/users/add"><button class="btn btn-primary">Add users</button></a>
-					<?php endif;?>
+							?>
+						<div class="col-md-3 col-sm-3 col-xs-12 profile_details">
+						  <div class="well profile_view">
+							<div class="col-sm-12">
+							  <h4 class="brief"><i><?=$user->job_title?></i></h4>
+							  <div class="left col-xs-7">
+								<h2><?=$user->firstname?> <?=$user->surname?></h2>
+								<ul class="list-unstyled">
+								  <li><i class="fa fa-building"></i> Address: </li>
+								  <li><i class="fa fa-phone"></i> Phone #: </li>
+								  </br>
+								</ul>
+							  </div>
+							  <div class="right col-xs-5 text-center">
+								<img src="/templates/console/assets/images/img.jpg" alt="" class="img-circle img-responsive">
+							  </div>
 							</div>
-
-							<div class="clearfix"></div>
+							<div class="col-xs-12 bottom text-center">
+							  <div class="col-xs-6 col-sm-6 emphasis">
+								<button type="button" class="btn btn-primary btn-xs">
+								  <i class="fa fa-user"> </i> View Profile
+								</button>
+							</div>
+								<div class="col-xs-6 col-sm-6 emphasis">
+								<a href="/console/users/edit/<?=$user->user_id?>"><button type="button" class="btn btn-primary btn-xs">
+								  <i class="fa fa-user"> </i> Edit Settings
+								</button></a>
+							  </div>
+						  </div>
 						</div>
-					</div>
-
 				</div>
-				<br />
+				<?php endforeach;?>
+			<?php else:?>
+				<h3>There are no users added yet, add some!</h3>
+				<a href="/console/users/add"><button class="btn btn-primary">Add users</button></a>
+				<?php endif;?>
+            </div>

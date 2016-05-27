@@ -9,16 +9,18 @@ use Helpers\Url;
 use Helpers\Request;
 use Helpers\Csrf;
 use App\Models\RootUser;
+use App\Models\ClientUsers;
 
 class Auth extends Controller
 {
-    private $_model;
+    private $_root_user;
+    private $_client_user;
     
     public function __construct()
     {
         parent::__construct();
-        $this->_model = new RootUser();
-        
+        $this->_root_user = new RootUser();
+        $this->_client_user = new ClientUsers();
     }
 
     public function login()
@@ -34,28 +36,57 @@ class Auth extends Controller
             
             if (Csrf::isTokenValid('csrfTokenLogin'))
             {
-                //TODO CORRECT VALIDATION
-                if(Password::verify($password, $this->_model->getHash($username)))
+               
+                if($this->_root_user->getEmailCount($username)->count == 1)
                 {
-                    Session::set('loggedin', true);
-                    Session::set('userID', $this->_model->getUserDetailsFromEmail($username)->account_id);
-                    //TODO Create authkey
-                    Session::set('authKey', $this->_model->getHash($username));
-                    Url::redirect('console/dashboard');
+                    if($this->_root_user->getUserDetailsFromEmail($username)->enabled == 0)
+                    {
+                        //TODO CORRECT VALIDATION
+                        if(Password::verify($password, $this->_root_user->getHash($username)))
+                        {
+                            Session::set('rootloggedin', true);
+                            Session::set('rootuserID', $this->_root_user->getUserDetailsFromEmail($username)->account_id);
+                            //TODO Create authkey
+                            Session::set('rootauthKey', $this->_root_user->getHash($username));
+                            Url::redirect('console/dashboard');
+                        }
+                        else
+                        {
+                            $error[] = 'Username or Passowrd incorrect';
+                        }
+                    }
+                    else
+                    {
+                        $error[] = 'You account is not enabled!';
+                    }
                 }
-                else
+                elseif($this->_client_user->getEmailCount($username)->count == 1)
                 {
-                    $error[] = 'Password is incorrect';
+                    if($this->_client_user->getUserDetailsFromEmail($username)->enabled == 0)
+                    {
+                        //TODO CORRECT VALIDATION
+                        if(Password::verify($password, $this->_client_user->getHash($username)))
+                        {   
+                            Session::set('clientloggedin', true);
+                            Session::set('clientuserID', $this->_client_user->getUserDetailsFromEmail($username)->account_id);
+                            //TODO Create authkey
+                            Session::set('clientauthKey', $this->_client_user->getHash($username));
+                            Url::redirect('client/dashboard');
+                        }
+                        else
+                        {
+                            $error[] = 'Username or Passowrd incorrect';
+                        }
+                    }
+                    else
+                    {
+                        $error[] = 'You account is not enabled!';
+                    }
                 }
             }
             else
             {
                 Url::redirect('login');
-            }
-            //if validation is sucessful redirect to protected area.
-            if(!$error)
-            {
-                
             }
         }
         $data['title'] = 'login';
@@ -67,9 +98,21 @@ class Auth extends Controller
 
     public function logout()
     {
-        Session::destroy('loggedin');
-        Session::destroy('authKey');
-        Session::destroy('userID');
+        if(Session::get('rootloggedin'))
+        {
+            Session::destroy('rootloggedin');
+            Session::destroy('rootauthKey');
+            Session::destroy('rootuserID');
+            Url::redirect();
+        }
+        elseif(Session::get('loggedin'))
+        {
+            Session::destroy('clientloggedin');
+            Session::destroy('clientauthKey');
+            Session::destroy('clientuserID');
+            Url::redirect();
+        }
+       
         Url::redirect();
     }
 }

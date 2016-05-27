@@ -19,7 +19,7 @@ class ConsoleDashboard extends Controller
     
     public function index()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('rootloggedin')){
             Url::redirect('login');
         }
         

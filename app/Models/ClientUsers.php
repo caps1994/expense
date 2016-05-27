@@ -10,6 +10,12 @@ class ClientUsers extends Model
         parent::__construct();
     }
     
+    public function getManagers($root_account)
+    {
+        $data = $this->db->select("SELECT * FROM ".PREFIX."client_users WHERE root_account_id = :root_account AND is_manager = :is_manager AND enabled = :enabled", array(':root_account' => $root_account, ':is_manager' => 0, ':enabled' => 0));
+        return $data;
+    }
+    
     public function getClientUsers($root_account)
     {
         $data = $this->db->select("SELECT * FROM ".PREFIX."client_users WHERE root_account_id = :root_account", array(':root_account' => $root_account));
@@ -63,6 +69,24 @@ class ClientUsers extends Model
     public function changePassword($data, $userid)
     {
         $this->db->update(PREFIX.'client_users', $data, $userid);
+    }
+    
+    public function getEmailCount($email)
+    {
+         $data = $this->db->select("SELECT count(email) as count FROM ".PREFIX."client_users WHERE email = :email ", array(':email' => $email));
+         return $data[0];
+    }
+    
+    public function getHash($email)
+    {
+        $data = $this->db->select("SELECT password FROM ".PREFIX."client_users WHERE email = :email", array(':email' => $email));
+        return $data[0]->password;
+    }
+    
+   public function getUserDetailsFromEmail($email)
+    {
+         $data = $this->db->select("SELECT * FROM ".PREFIX."client_users WHERE email = :email", array(':email' => $email));
+         return $data[0];
     }
     
     public function deleteClientUser($id)

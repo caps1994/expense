@@ -12,6 +12,12 @@ class RootUser extends Model
         
     }
     
+    public function getEmailCount($email)
+    {
+         $data = $this->db->select("SELECT count(email) as count FROM ".PREFIX."root_account WHERE email = :email", array(':email' => $email));
+         return $data[0];
+    }
+    
     public function getUserDetailsFromEmail($email)
     {
          $data = $this->db->select("SELECT * FROM ".PREFIX."root_account WHERE email = :email", array(':email' => $email));

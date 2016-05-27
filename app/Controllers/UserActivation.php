@@ -95,8 +95,5 @@ class UserActivation extends Controller
             {
                 Url::redirect();
             }
-        }
-        echo "im here";
-        //View::render('Register/Index', $data, $error);
     }
 }
