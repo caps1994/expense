@@ -111,6 +111,12 @@
 					<li><a href="/console/band-groups/add">Add Band Group</a></li>
                   </ul>
                 </li>
+		    <li><a><i class="fa fa-group"></i> Departments <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="/console/departments/">View Departments</a></li>
+					<li><a href="/console/departments/add">Add Departments</a></li>
+                  </ul>
+                </li>
                 
               </ul>
 			</div>

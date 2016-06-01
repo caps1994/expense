@@ -8,23 +8,23 @@ use Helpers\Url;
 use Helpers\Csrf;
 use Helpers\Request;
 use App\Models\RootUser;
-use App\Models\Band;
+use App\Models\Departments;
 
-class ConsoleBands extends Controller
+class ConsoleDepartments extends Controller
 {
     private $_root_user;
     private $_client_users;
     private $_email;
-    private $_band_groups;
-    
+	private $_departments;
+	
     public function __construct()
     {
         parent::__construct();
         $this->_root_user = new RootUser();
-        $this->_band_groups = new Band();
+        $this->_departments = new Departments();
     }
     
-    public function showBands()
+    public function showDepartments()
     {
         if(!Session::get('rootloggedin')){
             Url::redirect('login');
@@ -34,13 +34,13 @@ class ConsoleBands extends Controller
         $userDetails = $this->_root_user->getUseDetailsFromID(Session::get('rootuserID'));
         $data['firstname'] = $userDetails->firstname;
         $data['lastname'] = $userDetails->surname;
-        $data['bands'] = $this->_band_groups->getBands(Session::get('rootuserID'));
+        $data['departments'] = $this->_departments->getDepartments(Session::get('rootuserID'));
         View::renderTemplate('header', $data, 'Console');
-        View::render('Console/ShowBands', $data);
+        View::render('Console/ShowDepartments', $data);
         View::renderTemplate('footer', $data, 'Console');
     }
     
-    public function addBand()
+    public function addDepartment()
     {
         if(!Session::get('rootloggedin')){
             Url::redirect('login');
@@ -49,45 +49,39 @@ class ConsoleBands extends Controller
         if(Request::isPost())
         {
             $details = array('root_account_id' => Session::get('rootuserID'),
-                             'band_group_name' => ucfirst(strtolower(Request::post('form-band-group'))),
-                             'max_spend' => ucfirst(strtolower(Request::post('form-max-spend'))),
-                             'notes' => Request::post('form-notes'),
-                             'enabled'  => Request::post('form-status'),
+                             'department_name' => strtoupper(Request::post('form-depname')),
                              );
             
             if (Csrf::isTokenValid('csrfToken'))
             {
-                if(isset($details['band_group_name'])
-                   && isset($details['max_spend'])
-                   && isset($details['enabled']))
+                if(isset($details['department_name']))
                 {
-                    if(!$details['band_group_name'])
+                    if(!$details['department_name'])
                     {
-                        $error[] = 'Band Name is required';
+                        $error[] = 'Department Name is required';
                     }
                     else
                     {
-                        $this->_band_groups->addBand($details);
+                        $this->_departments->addDepartment($details);
                         
-                        Url::redirect('console/band-groups/');
+                        Url::redirect('console/departments/');
                     }
                 }
             }
         }
         
-        $error = array();
-        $data['title'] = 'Console - Add Band Group';
+        $data['title'] = 'Console - Add Department';
         $rootUserDetails = $this->_root_user->getUseDetailsFromID(Session::get('userID'));
         $data['firstname'] = $rootUserDetails->firstname;
         $data['lastname'] = $rootUserDetails->surname;
         $data['root_account_id'] = $rootUserDetails->account_id;
         $data['csrfToken'] = Csrf::makeToken('addBandGroup');
         View::renderTemplate('header', $data, 'Console');
-        View::render('Console/AddBand', $data, $error);
+        View::render('Console/AddDepartment', $data, $error);
         View::renderTemplate('footer', $data, 'Console');
     }
     
-    public function editBand($band_group_id)
+    public function editDepartment($band_group_id)
     {
         if(!Session::get('rootloggedin')){
             Url::redirect('login');

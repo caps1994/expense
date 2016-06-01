@@ -36,6 +36,12 @@ Router::group('console', function(){
         Router::any('add', 'App\Controllers\Console\ConsoleBands@addBand');
         Router::any('edit/(:num)', 'App\Controllers\Console\ConsoleBands@editBand');
     });
+    
+    Router::group('departments', function(){
+        Router::get('', 'App\Controllers\Console\ConsoleDepartments@showDepartments');
+        Router::any('add', 'App\Controllers\Console\ConsoleDepartments@addDepartment');
+        Router::any('edit/(:num)', 'App\Controllers\Console\ConsoleDepartments@editDepartments');
+    });
 });
 Router::any('login', 'App\Controllers\Auth@login');
 Router::get('logout', 'App\Controllers\Auth@logout');

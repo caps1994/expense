@@ -10,18 +10,25 @@ use Helpers\Request;
 use App\Models\RootUser;
 use App\Models\ClientUsers;
 use App\Controllers\Email;
+use App\Models\Band;
+use App\Models\Departments;
 
 class ConsoleUsers extends Controller
 {
     private $_root_user;
     private $_client_users;
     private $_email;
+    private $_bands;
+    private $_departments;
+    
     public function __construct()
     {
         parent::__construct();
         $this->_root_user = new RootUser();
         $this->_client_users = new ClientUsers();
+        $this->_bands = new Band;
         $this->_email = new Email();
+        $this->_departments = new Departments();
     }
     
     public function showClientUsers()
@@ -162,6 +169,8 @@ class ConsoleUsers extends Controller
             $data['lastname'] = $userDetails->surname;
             $data['clientUser'] = $this->_client_users->getClientUser(Session::get('rootuserID'), $user_id);
             $data['managers'] = $this->_client_users->getManagers(Session::get('rootuserID'));
+            $data['bands'] = $this->_bands->getBands(Session::get('rootuserID'));
+            $data['departments'] = $this->_departments->getDepartments(Session::get('rootuserID'));
             $data['csrfToken'] = Csrf::makeToken('editClientUser');
             View::renderTemplate('header', $data, 'Console');
             View::render('Console/EditClientUsers', $data, $error);

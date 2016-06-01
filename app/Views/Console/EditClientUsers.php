@@ -9,7 +9,7 @@ use Core\Error;
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Add Client User</h2>
+                  <h2>Edit Client User</h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -37,18 +37,30 @@ use Core\Error;
                         <input type="text" id="form-email" name="form-email" required="required" class="form-control col-md-7 col-xs-12" value="<?=$clientUser[0]->email?>">
                       </div>
                     </div>
-                    <div class="form-group">
+                    <?php if ($bands != NULL):?>
+										<div class="form-group">
                       <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Band </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="form-band" class="form-control col-md-7 col-xs-12" type="text" name="form-band" value="<?=$clientUser[0]->band?>">
-                      </div>
+											<select name="form-band">
+												<?php foreach($bands as $band):?>
+												<option value="<?=$band->band_group_id?>" <?=$clientUser[0]->band == $band->band_group_id ? "selected='selected'" : ""?>><?=$band->band_group_name?></option>
+												<?php endforeach?>
+											</select>
+										</div>
                     </div>
+										<?php endif?>
+										<?php if ($departments != NULL):?>
 										<div class="form-group">
                       <label for="form-department" class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="form-department" class="form-control col-md-7 col-xs-12" type="text" name="form-department" value="<?=$clientUser[0]->department?>">
-                      </div>
+											<select name="form-department">
+												<?php foreach($departments as $department):?>
+												<option value="<?=$department->department_id?>" <?=$clientUser[0]->department == $department->department_id ? "selected='selected'" : ""?>><?=$department->department_name?></option>
+												<?php endforeach?>
+											</select>
+										</div>
                     </div>
+										<?php endif?>
 										<div class="form-group">
                       <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Job Title </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
@@ -61,7 +73,7 @@ use Core\Error;
                       <div class="col-md-6 col-sm-6 col-xs-12">
 											<select name="form-manager">
 												<?php foreach($managers as $manager):?>
-												<option value="<?=$manager->user_id?>"><?=$manager->firstname . ' ' . $manager->surname?></option>
+												<option value="<?=$manager->user_id?>" <?=$clientUser[0]->manager == $manager->user_id ? "selected='selected'" : ""?>><?=$manager->firstname . ' ' . $manager->surname?></option>
 												<?php endforeach?>
 											</select>
 										</div>
