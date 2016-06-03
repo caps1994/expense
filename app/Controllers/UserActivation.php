@@ -95,5 +95,7 @@ class UserActivation extends Controller
             {
                 Url::redirect();
             }
+        }
     }
 }
+

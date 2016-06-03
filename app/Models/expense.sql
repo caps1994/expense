@@ -30,7 +30,7 @@ CREATE TABLE `expense_band_groups` (
   `notes` varchar(255) DEFAULT NULL,
   `enabled` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`band_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `expense_band_groups` (
 
 LOCK TABLES `expense_band_groups` WRITE;
 /*!40000 ALTER TABLE `expense_band_groups` DISABLE KEYS */;
-INSERT INTO `expense_band_groups` VALUES (5,1,'Testband','1500','Test band ',1),(6,1,'Test','2500','yrdy45y54y5',0);
+INSERT INTO `expense_band_groups` VALUES (8,3,'Executive','1500','This band is for executives',0);
 /*!40000 ALTER TABLE `expense_band_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,11 +90,11 @@ CREATE TABLE `expense_client_users` (
   `job_title` varchar(45) NOT NULL,
   `is_manager` tinyint(4) NOT NULL DEFAULT '1',
   `manager` int(11) DEFAULT '0',
-  `department` int(11) NOT NULL DEFAULT '0',
+  `department` int(11) DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_client_users_1_idx` (`root_account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,8 +103,33 @@ CREATE TABLE `expense_client_users` (
 
 LOCK TABLES `expense_client_users` WRITE;
 /*!40000 ALTER TABLE `expense_client_users` DISABLE KEYS */;
-INSERT INTO `expense_client_users` VALUES (60,1,'Meh','Meh','meh@meh.com',NULL,NULL,'2016-05-27',0,0,'meh',0,0,0),(64,1,'Chris','Caplan','christopher.caplan@gmail.com','$2y$10$4y34cat4WsoGo1F/AWD8WOs9uWZ2AxWUKkskURUw23UUxkwxOGldq',NULL,'2016-05-27',0,0,'It Support Technician',1,60,0);
+INSERT INTO `expense_client_users` VALUES (66,3,'Christopher','Caplan','christopher.caplan@gmail.com','$2y$10$ANPnGRrT1B6EDmNX7WkFaORVysHKzViQWotM1AnwczYbL8gXxo7ju',NULL,'2016-06-02',8,0,'It Support Technician',0,NULL,0),(67,3,'Meh','Meh','meh@meh.com',NULL,NULL,'2016-06-02',8,1,'meh',1,66,5);
 /*!40000 ALTER TABLE `expense_client_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `expense_departments`
+--
+
+DROP TABLE IF EXISTS `expense_departments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `expense_departments` (
+  `department_id` int(11) NOT NULL AUTO_INCREMENT,
+  `root_account_id` int(11) NOT NULL,
+  `department_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expense_departments`
+--
+
+LOCK TABLES `expense_departments` WRITE;
+/*!40000 ALTER TABLE `expense_departments` DISABLE KEYS */;
+INSERT INTO `expense_departments` VALUES (5,3,'IT');
+/*!40000 ALTER TABLE `expense_departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -206,7 +231,7 @@ CREATE TABLE `expense_root_account` (
   `level` varchar(45) DEFAULT NULL,
   `enabled` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +240,7 @@ CREATE TABLE `expense_root_account` (
 
 LOCK TABLES `expense_root_account` WRITE;
 /*!40000 ALTER TABLE `expense_root_account` DISABLE KEYS */;
-INSERT INTO `expense_root_account` VALUES (1,'Christopher','Caplan','Ultimatefinance','ccaplan@hotmail.co.uk','$2y$10$FSjb4FCIk.5hFNeRpdX87O2C19zAZCZwV3yR7zMQvO14xBwUbjuVq','','0000-00-00','','0');
+INSERT INTO `expense_root_account` VALUES (3,'Chris','Caplan','Ultimate Finance','ccaplan@hotmail.co.uk','$2y$10$Wx7ksySML543tvt.RK6kee4I/BX1rjsEumICdHwx7Z97d.ROyVuMe',NULL,'2016-06-02',NULL,NULL);
 /*!40000 ALTER TABLE `expense_root_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +257,7 @@ CREATE TABLE `expense_user_activation_tokens` (
   `token_key` varchar(32) NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   PRIMARY KEY (`activation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,6 +266,7 @@ CREATE TABLE `expense_user_activation_tokens` (
 
 LOCK TABLES `expense_user_activation_tokens` WRITE;
 /*!40000 ALTER TABLE `expense_user_activation_tokens` DISABLE KEYS */;
+INSERT INTO `expense_user_activation_tokens` VALUES (1,65,'ce2092bd4ad46554e3b470f0542ebb8a',1464795582),(2,67,'e4f96039fb3880a78b27e139ad2518dc',1464883263);
 /*!40000 ALTER TABLE `expense_user_activation_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -253,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-27 14:28:33
+-- Dump completed on 2016-06-03 11:31:32

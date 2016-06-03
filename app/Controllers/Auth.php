@@ -52,7 +52,7 @@ class Auth extends Controller
                         }
                         else
                         {
-                            $error[] = 'Username or Passowrd incorrect';
+                            $error[] = 'Username or Password incorrect';
                         }
                     }
                     else
@@ -75,13 +75,17 @@ class Auth extends Controller
                         }
                         else
                         {
-                            $error[] = 'Username or Passowrd incorrect';
+                            $error[] = 'Username or Password incorrect';
                         }
                     }
                     else
                     {
                         $error[] = 'You account is not enabled!';
                     }
+                }
+                else
+                {
+                     $error[] = 'Username or Password incorrect';
                 }
             }
             else

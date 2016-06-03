@@ -1,4 +1,77 @@
-2016-06-01 15:18PM - require(/var/www/expense/app/Views/Console/AddDepartent.php): failed to open stream: No such file or directory in /var/www/expense/system/Core/View.php on line 41
+Exception information:
 
-2016-06-01 15:35PM - Missing argument 2 for App\Models\Departments::getDepartment(), called in /var/www/expense/app/Controllers/Console/ConsoleUsers.php on line 173 and defined in /var/www/expense/app/Models/Departments.php on line 19
+           Date: Jun 02, 2016 12:15PM
+
+           Message: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'department' cannot be null
+
+           Code: 23000
+
+           File: /var/www/expense/system/Helpers/Database.php
+
+           Line: 128
+
+           Stack trace:
+
+           #0 /var/www/expense/system/Helpers/Database.php(128): PDOStatement->execute()
+#1 /var/www/expense/app/Models/ClientUsers.php(34): Helpers\Database->insert('expense_client_...', Array)
+#2 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(87): App\Models\ClientUsers->addClientUser(Array)
+#3 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#4 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#5 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#6 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /var/www/expense/app/Routes.php(65): Core\Router->dispatch()
+#8 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#9 {main}
+
+           ---------
+
+Exception information:
+
+           Date: Jun 02, 2016 12:17PM
+
+           Message: syntax error, unexpected end of file, expecting function (T_FUNCTION)
+
+           Code: 0
+
+           File: /var/www/expense/app/Controllers/UserActivation.php
+
+           Line: 100
+
+           Stack trace:
+
+           #0 /var/www/expense/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/var/www/expens...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 [internal function]: spl_autoload_call('App\\Controllers...')
+#3 /var/www/expense/system/Core/Router.php(242): class_exists('App\\Controllers...')
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(65): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
+
+Exception information:
+
+           Date: Jun 02, 2016 16:57PM
+
+           Message: syntax error, unexpected 'endif' (T_ENDIF), expecting end of file
+
+           Code: 0
+
+           File: /var/www/expense/app/Views/Console/AddUser.php
+
+           Line: 69
+
+           Stack trace:
+
+           #0 /var/www/expense/app/Controllers/Console/ConsoleUsers.php(118): Core\View::render('Console/AddUser', Array, Array)
+#1 [internal function]: App\Controllers\Console\ConsoleUsers->addClientUser()
+#2 /var/www/expense/system/Core/Router.php(213): call_user_func_array(Array, Array)
+#3 /var/www/expense/system/Core/Router.php(244): Core\Router->invokeController('App\\Controllers...', 'addClientUser', Array)
+#4 /var/www/expense/system/Core/Router.php(281): Core\Router->invokeObject('App\\Controllers...', Array)
+#5 /var/www/expense/app/Routes.php(65): Core\Router->dispatch()
+#6 /var/www/expense/public/index.php(74): require('/var/www/expens...')
+#7 {main}
+
+           ---------
 

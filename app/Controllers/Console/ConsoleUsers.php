@@ -55,11 +55,11 @@ class ConsoleUsers extends Controller
         
         if(Request::isPost())
         {
-            $details = array('firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
+            $details = array('root_account_id' => Session::get('rootuserID'),
+                             'firstname' => ucfirst(strtolower(Request::post('form-firstname'))),
                              'surname' => ucfirst(strtolower(Request::post('form-surname'))),
                              'email' => Request::post('form-email'),
                              'band'  => Request::post('form-band'),
-                             'enabled' => Request::post('form-status'),
                              'job_title' => Request::post('form-jtitle'),
                              'is_manager' => (Request::post('form-ismanager') == NULL ? 1 : Request::post('form-ismanager')),
                              'department' => Request::post('form-department'),
@@ -110,6 +110,9 @@ class ConsoleUsers extends Controller
         $data['firstname'] = $rootUserDetails->firstname;
         $data['lastname'] = $rootUserDetails->surname;
         $data['root_account_id'] = $rootUserDetails->account_id;
+        $data['bands'] = $this->_bands->getBands(Session::get('rootuserID'));
+        $data['managers'] = $this->_client_users->getManagers(Session::get('rootuserID'));
+        $data['departments'] = $this->_departments->getDepartments(Session::get('rootuserID'));
         $data['csrfToken'] = Csrf::makeToken('addClientUser');
         View::renderTemplate('header', $data, 'Console');
         View::render('Console/AddUser', $data, $error);

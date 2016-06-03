@@ -42,6 +42,7 @@ use Core\Error;
                       <label for="form-band" class="control-label col-md-3 col-sm-3 col-xs-12">Band </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
 											<select name="form-band">
+												<option value="0">None</option>
 												<?php foreach($bands as $band):?>
 												<option value="<?=$band->band_group_id?>" <?=$clientUser[0]->band == $band->band_group_id ? "selected='selected'" : ""?>><?=$band->band_group_name?></option>
 												<?php endforeach?>
@@ -54,8 +55,9 @@ use Core\Error;
                       <label for="form-department" class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
 											<select name="form-department">
+												<option value="0">None</option>
 												<?php foreach($departments as $department):?>
-												<option value="<?=$department->department_id?>" <?=$clientUser[0]->department == $department->department_id ? "selected='selected'" : ""?>><?=$department->department_name?></option>
+													<option value="<?=$department->department_id?>" <?=$clientUser[0]->department == $department->department_id ? "selected='selected'" : ""?>><?=$department->department_name?></option>
 												<?php endforeach?>
 											</select>
 										</div>
@@ -72,8 +74,9 @@ use Core\Error;
                       <label for="form-manger" class="control-label col-md-3 col-sm-3 col-xs-12">Manager </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
 											<select name="form-manager">
+												<option value="0">None</option>
 												<?php foreach($managers as $manager):?>
-												<option value="<?=$manager->user_id?>" <?=$clientUser[0]->manager == $manager->user_id ? "selected='selected'" : ""?>><?=$manager->firstname . ' ' . $manager->surname?></option>
+													<option value="<?=$manager->user_id?>" <?=$clientUser[0]->manager == $manager->user_id ? "selected='selected'" : ""?>><?=$manager->firstname . ' ' . $manager->surname?></option>
 												<?php endforeach?>
 											</select>
 										</div>

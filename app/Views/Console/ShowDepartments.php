@@ -37,7 +37,7 @@
 					<?php else:?>
 					
 						<h3>There are no band groups added yet, add some!</h3>
-						<a href="/console/department/add"><button class="btn btn-primary">Add Department</button></a>
+						<a href="/console/departments/add"><button class="btn btn-primary">Add Department</button></a>
 					<?php endif;?>
 							</div>
 

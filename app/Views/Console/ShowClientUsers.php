@@ -59,4 +59,4 @@
 				<h3>There are no users added yet, add some!</h3>
 				<a href="/console/users/add"><button class="btn btn-primary">Add users</button></a>
 				<?php endif;?>
-            </div>
+			</div>
